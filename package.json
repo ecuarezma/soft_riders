@@ -1,0 +1,22 @@
+{
+  "name": "soft_riders",
+  "version": "1.0.0",
+  "description": "soft riders playlist website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edgar Cuarezma",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "howler": "^2.1.2",
+    "mongoose": "^5.5.9",
+    "querystring": "^0.2.0",
+    "request": "^2.88.0"
+  }
+}

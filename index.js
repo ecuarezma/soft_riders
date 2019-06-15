@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express         = require('express'),
       bodyParser      = require('body-parser'),
       app             = express(),
       request         = require('request'), // "Request" library
       playlistRoutes  = require('./routes/playlists');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -33,7 +35,7 @@ app.get('/soft_playlists', function(req, res){
       };
   request.get(options, function(error, response, body) {
     res.render('soft_playlists', {body:body});
-    console.log(body.items[19].owner)
+    // console.log(body.items[19].owner)
       });
     }
   });
@@ -42,8 +44,8 @@ app.get('/soft_playlists', function(req, res){
 app.use('/api/playlists', playlistRoutes);
 
 
-const client_id = CLIENT_ID // Your client id
-const client_secret = CLIENT_SECRET // Your secret
+const client_id = process.env.CLIENT_ID; // Your client id
+const client_secret = process.env.CLIENT_SECRET; // Your secret
 
 // your application requests authorization
 let authOptions = {
@@ -57,8 +59,8 @@ let authOptions = {
   json: true
 };
 
-app.listen(process.env.PORT, function(){
-  console.log('app is running on port ' + process.env.PORT);
+app.listen(8000, () => {
+  console.log('app is running on port ' + 8000);
 });
 
 

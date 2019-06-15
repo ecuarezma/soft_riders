@@ -5,6 +5,10 @@ var playlistSchema = new mongoose.Schema({
         type: String,
         required: "Cannot be blank!"
     },
+    imageURL: {
+        type: String,
+        required: "Must add image!"
+    },
     created_date: {
         type: Date,
         default: Date.now

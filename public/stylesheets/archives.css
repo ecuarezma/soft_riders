@@ -1,6 +1,6 @@
-.mixcloud iframe {
+.mixcloud img {
     width: 250px;
-    height: 250px;
+    height: 100%;
 }
 
 .playlist img {

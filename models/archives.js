@@ -17,4 +17,13 @@ var playlistSchema = new mongoose.Schema({
 
 var Playlist = mongoose.model('Playist', playlistSchema);
 
+// Playlist.create({
+//     link: 'www.google.com',
+//     imageURL: 'imgURL'
+// }).then(newData => {
+//     console.log(newData)
+// }).catch(err => {
+//     console.log(err)
+// })
+
 module.exports = Playlist;

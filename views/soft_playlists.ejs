@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <link rel="stylesheet" href="stylesheets/archives.css" type="text/css" />    
-        <script
-          src="https://code.jquery.com/jquery-3.4.1.min.js"
-          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-          crossorigin="anonymous">
-        </script>
-    </head>
-    <body>
+<% include ./partials/header %>
+
         <h1>hello from playlists page!</h1>
         <div class='container' id='soft_riders'></div>
         <div class='container' id='curated'></div>
@@ -19,5 +9,5 @@
             var body = '<%- JSON.stringify(body) %>';
         </script>
         <script type="text/javascript" src="scripts/soft_playlists.js"></script>
-    </body>    
-</html>
+
+<% include ./partials/footer %>

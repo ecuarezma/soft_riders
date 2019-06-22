@@ -19,7 +19,7 @@ app.get('/', function(req, res){
 app.get('/archives', function(req, res){
   res.render('archives')
 })
-app.get('/soft_playlists', function(req, res){
+app.get('/playlists', function(req, res){
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
   

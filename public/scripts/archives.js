@@ -2,7 +2,15 @@
 $(document).ready(()=>{
   
   playlistCall();
+
 });
+
+
+
+
+
+
+//functions for calling api's
 const url = 'https://api.mixcloud.com/soft_riders/cloudcasts/';
 
 function addPlaylists(playlists) {

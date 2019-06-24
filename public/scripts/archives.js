@@ -19,7 +19,7 @@ function addPlaylists(playlists) {
     `<div class="mixcloud card">
       <img src="${playlist.pictures.large}" alt="mixcloud playlist ${index}" />
     </div`);
-  $('.container').append(newDiv);
+  $('.mixcloud-container').append(newDiv);
   }); 
 }
 

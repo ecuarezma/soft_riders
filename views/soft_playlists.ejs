@@ -1,13 +1,18 @@
 <% include ./partials/header %>
 
-        <h1>hello from playlists page!</h1>
-        <div class='container' id='soft_riders'></div>
-        <div class='container' id='curated'></div>
-        <button><a href="https://open.spotify.com/user/englishwallpaper">more</a></button>
-        
-        <script>
-            var body = '<%- JSON.stringify(body) %>';
-        </script>
-        <script type="text/javascript" src="scripts/soft_playlists.js"></script>
+  <div class='spotify-container'>
+    <div id='soft_riders'></div>
+    <div id='curated'></div>
+  </div>
+  
+  <button>
+    <a href="https://open.spotify.com/user/englishwallpaper">more</a>
+  </button>
+  
+  
+  <script>
+    var body = '<%- JSON.stringify(body) %>';
+  </script>
+  <script type="text/javascript" src="scripts/soft_playlists.js"></script>
 
 <% include ./partials/footer %>

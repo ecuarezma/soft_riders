@@ -16,7 +16,7 @@ const url = 'https://api.mixcloud.com/soft_riders/cloudcasts/';
 function addPlaylists(playlists) {
  playlists.forEach( (playlist, index) => {
   let newDiv = $(
-    `<div class="mixcloud card">
+    `<div class="playlist-card">
       <img src="${playlist.pictures.large}" alt="mixcloud playlist ${index}" />
     </div`);
   $('.mixcloud-container').append(newDiv);

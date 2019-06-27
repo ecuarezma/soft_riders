@@ -25,18 +25,10 @@ app.get('/playlists', function(req, res){
   
     // use the access token to access the Spotify Web API
     let token = body.access_token;
-    const user = 'englishwallpaper';
-    const options = {
-      url: `https://api.spotify.com/v1/users/${user}/playlists`,
-      headers: {
-        'Authorization': `Bearer ${token}`
-        },
-        json: true
-      };
-  request.get(options, function(error, response, body) {
-    res.render('soft_playlists', {body:body});
+  
+    res.render('soft_playlists', {token:token});
     // console.log(body.items[19].owner)
-      });
+      
     }
   });
 });
@@ -51,7 +43,7 @@ const client_secret = process.env.CLIENT_SECRET; // Your secret
 let authOptions = {
   url: 'https://accounts.spotify.com/api/token',
   headers: {
-    'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+    'Authorization': 'Basic ' + (Buffer.from(client_id + ':' + client_secret).toString('base64'))
   },
   form: {
     grant_type: 'client_credentials'

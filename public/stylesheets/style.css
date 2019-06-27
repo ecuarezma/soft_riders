@@ -9,7 +9,6 @@ body {
   display: flex;
   width: 100%;
   height: 80px;
-  flex-direction: row;
   justify-content: flex-end;
   font-size: 1.5rem;
 }
@@ -24,12 +23,16 @@ body {
   margin-right: auto;
 }
 
-.mixcloud img {
-    width: 250px;
-    height: 100%;
+
+.mixcloud-container, .spotify-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.playlist img {
+
+.playlist-card img {
     width: 300px;
     height: 100%;
 }

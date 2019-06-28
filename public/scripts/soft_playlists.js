@@ -1,5 +1,8 @@
 /* global body $ */
 $(document).ready(() => {
+
+
+  
 //CALLING SPOTIFY API
 fetch(url, { 
   headers: {'Authorization':`Bearer ${token}`}

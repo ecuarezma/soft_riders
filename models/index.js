@@ -14,6 +14,6 @@ mongoose.connect(`mongodb+srv://ecuarezma:${process.env.DB_PWD}@jovial-cluster-b
 
 mongoose.Promise = Promise;
 
-module.exports.Playlist = require('./archives')
+module.exports.Subscriber = require('./subscriber')
 
 

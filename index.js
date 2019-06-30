@@ -4,8 +4,7 @@ const express         = require('express'),
       app             = express(),
       request         = require('request'), // "Request" library
       db              = require('./models'),
-      playlistRoutes  = require('./routes/playlists'),
-      { check, validationResult } = require('express-validator');
+      playlistRoutes  = require('./routes/playlists');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,14 +18,15 @@ app.route('/')
     res.render('index');
   })
   .post(function(req, res){
-      db.Subscriber.create(req.body)
-      .then(newSubscriber => {
-        res.redirect('/');
-        console.log(newSubscriber);
-      })
-      .catch(err => {
-        console.log(err)
-        res.redirect('/')
+    db.Subscriber.create(req.body)
+    .then(newSubscriber => {
+      res.redirect('/');
+      console.log(newSubscriber);
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })  
   })
 
 
@@ -72,5 +72,3 @@ let authOptions = {
 app.listen(8000, () => {
   console.log('app is running on port ' + 8000);
 });
-
-

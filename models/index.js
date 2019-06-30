@@ -9,7 +9,6 @@ mongoose.connect(`mongodb+srv://ecuarezma:${process.env.DB_PWD}@jovial-cluster-b
 }).catch(err => {
     console.log('ERROR: ', err.message);
 })
-// mongoose.connect('mongodb://localhost/soft_riders_api', {useNewUrlParser: true});
 
 
 mongoose.Promise = Promise;

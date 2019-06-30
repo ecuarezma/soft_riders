@@ -3,8 +3,9 @@ const express         = require('express'),
       bodyParser      = require('body-parser'),
       app             = express(),
       request         = require('request'), // "Request" library
-      playlistRoutes  = require('./routes/playlists');
-
+      db              = require('./models'),
+      playlistRoutes  = require('./routes/playlists'),
+      { check, validationResult } = require('express-validator');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -13,12 +14,26 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
    
-app.get('/', function(req, res){
-  res.render('index');
-});
+app.route('/')
+  .get(function(req, res){
+    res.render('index');
+  })
+  .post(function(req, res){
+      db.Subscriber.create(req.body)
+      .then(newSubscriber => {
+        res.redirect('/');
+        console.log(newSubscriber);
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/')
+  })
+
+
 app.get('/archives', function(req, res){
   res.render('archives')
-})
+});
+
 app.get('/playlists', function(req, res){
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
@@ -50,6 +65,9 @@ let authOptions = {
   },
   json: true
 };
+
+// middleware for form validation
+
 
 app.listen(8000, () => {
   console.log('app is running on port ' + 8000);

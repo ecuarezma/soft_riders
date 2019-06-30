@@ -3,19 +3,24 @@ var mongoose = require('mongoose');
 var subscriberSchema = new mongoose.Schema({
     firstName: {
         type: String,
+        maxlength: 50,
         required: "Please enter a first name!"
     },
     lastName: {
         type: String,
+        maxlength: 50,
         required: "Please enter a last name!"
     },
     email: {
         type: String,
+        lowercase: true,
+        maxlength: 50,
         unique: true,
-        required: "Please enter valid email!"
+        required: "Please enter your email!"
     },
     location: {
         type: String,
+        maxlength: 50,
         required: "Please enter location!"
     },
     created_date: {
@@ -27,10 +32,10 @@ var subscriberSchema = new mongoose.Schema({
 var Subscriber = mongoose.model('Subscriber', subscriberSchema);
 
 // Subscriber.create({
-//     firstName: " ",
-//     lastName: " ",
-//     email: " ",
-//     location: " "
+//     firstName: "Edgar",
+//     lastName: "Cuarezma",
+//     email: "eCuAreZmA@gmail.com",
+//     location: "St Francis, WI"
 // }).then(newData => {
 //     console.log(newData)
 // }).catch(err => {

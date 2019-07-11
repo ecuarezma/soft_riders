@@ -16,15 +16,15 @@ const user = 'englishwallpaper';
 const url = `https://api.spotify.com/v1/users/${user}/playlists?limit=50`;
 
 function loadPlaylists(data){
-  data.forEach(playlist => {
+  data.map(playlist => {
     const src           = playlist.images[0].url,
           display_name  = playlist.owner.display_name
     let newDiv = 
     $(`<div class="playlist-card">
-        <img src= "${src}"/>
+        <img id="image" src= "${src}"/>
       </div>`)
     if(display_name !== 'Miki Lee'){
-      $('.spotify-container').append(newDiv);
+      $('.spotify-grid').append(newDiv);
     };
   });
 };

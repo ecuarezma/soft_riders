@@ -1,25 +1,30 @@
 <% include ./partials/header %>
+    
+    <div class="container">
+      <div id="video-container">
+        <video playsinline autoplay muted loop poster="" id="bgvid">
+          <source src="/media/videos/strawberry.m4v#t=5" type="video/mp4">
+        </video>
+      </div>
+      <div id="audio-player">
+        <audio
+          controls
+          src="http://198.27.80.205:5220/;stream/1"
+          type="audio/mpeg">
+              Your browser does not support the
+              <code>audio</code> element.
+        </audio>
+      </div>
+        
+    <% include ./partials/signup %>  
 
-  <h1>hello from index.html!</h1>
-  
-  <form action="/" method="POST">
-    <div>
-      <label for="name">Name: </label>
-      <input type="text" name="firstName" placeholder="First Name">    
-      <input type="text" name="lastName" placeholder="Last Name"> 
-    </div>
-    <div>
-      <label for="email">Email: </label>
-      <input type="email" name="email">
-    </div>
-    <div>
-      <label for="location">Location: </label>
-      <input type="text" name="location" placeholder="example: Miami, FL">
-    </div> 
-    <div>
-      <input type="submit" value="Join!">
-    </div>
-  </form>
-  
+    <% include ./partials/footer %>
   <script type="text/javascript" src="scripts/script.js"></script>
-<% include ./partials/footer %>
+  <script type="text/javascript">
+    const title = 'Soft Riders'
+    const style = '<link rel="stylesheet" href="stylesheets/index.css" type="text/css" />'
+    $('head').append(style);
+    $('title').append(title);
+  </script>  
+</body>
+</html>

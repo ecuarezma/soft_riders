@@ -1,14 +1,18 @@
 <% include ./partials/header %>
 
-        <div class='mixcloud-container'>
-            <!-- <iframe 
-                width="100%" 
-                height="400" 
-                src="https://www.mixcloud.com/widget/iframe/?light=1&feed=/soft_riders/soft-riders-live-on-jolt-radio-7182018/" 
-                frameborder="0" >
-            </iframe> -->
-        </div>
-        
-        <script type="text/javascript" src="scripts/archives.js"></script>
+  <div class="container">
+    <div class='mixcloud-grid'></div>
+    <div class='mixcloud-content'></div>
+  
+  </div>
+  <% include ./partials/footer %> 
 
-<% include ./partials/footer %>
+ <script type="text/javascript">
+  const title = 'Past Shows';
+  const style = '<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />';
+  $('head').append(style);
+  $('title').append(title);
+  </script>
+  <script type="text/javascript" src="scripts/archives.js"></script>
+</body>
+</html>

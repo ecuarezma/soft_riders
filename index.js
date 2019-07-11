@@ -48,6 +48,14 @@ app.get('/playlists', function(req, res){
   });
 });
 
+app.get('/promos', (req, res)=> {
+  res.render('promos');
+})
+
+app.get('/about', (req, res)=> {
+  res.render('about');
+})
+
 app.use('/api/playlists', playlistRoutes);
 
 

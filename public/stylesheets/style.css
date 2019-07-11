@@ -1,38 +1,142 @@
-body {
-    margin: 0;
-    font-family: 'Play', sans-serif;
-    display: flex;
+@media (max-width: 576px) {
+  .container {
     flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .navbar-header svg {
+    display: block !important;
+    margin: 10px;
+    font-size: 2rem;
+    color: aqua;
+  }
+
+  .navbar ul {
+    display: none !important;
+  }
+
+  .mixcloud-grid {
+    flex-basis: 100%;
+    overflow: scroll;
+  }
+
+  .mixplayer {
+    object-fit: cover;
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+
+  #play-image {
+    display: none;
+  }
+
+  .playlist-card {
+    margin: 10px;
+    flex-flow: column nowrap;
+    align-content: space-around;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: solid 2px rgb(73, 63, 63);
+    border-radius: 0.5rem;
+  }
+
+  footer {
+    flex-basis: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+}
+
+body {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Play", sans-serif;
 }
 
 .navbar {
   display: flex;
-  width: 100%;
-  height: 80px;
+  border: solid 2px gray;
+  flex-basis: 80px;
   justify-content: flex-end;
   font-size: 1.5rem;
 }
 
+.navbar ul {
+  display: flex;
+  border: solid 2px black;
+  list-style: none;
+}
+
 .navbar a {
-  padding: 2rem;
   text-decoration: none;
-  color: black;
+  color: rgb(181, 181, 181);
 }
 
 #brand {
   margin-right: auto;
 }
 
-
-.mixcloud-container, .spotify-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+.navbar-header svg {
+  display: none;
 }
 
+.container {
+  display: flex;
+  flex-basis: 800px;
+}
+
+.mixcloud-grid,
+.spotify-grid {
+  background-color: rgb(181, 181, 181);
+  border-radius: 0.5rem;
+}
+
+.mixcloud-content,
+.spotify-content {
+  /* border: solid 2px rgb(73, 63, 63);
+  border-radius: 0.5rem;
+  padding: 1rem; */
+  display: flex;
+}
+.playlist-card {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-around;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: solid 2px rgb(73, 63, 63);
+  border-radius: 0.5rem;
+  opacity: 0.75;
+  transform: scale(0.95);
+  transition: transform 200ms ease-in, opacity 300ms linear 150ms;
+}
 
 .playlist-card img {
-    width: 300px;
-    height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#caption {
+  text-align: center;
+  margin: 0.5rem auto;
+}
+
+.playlist-card:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 80px;
+  background-color: aqua;
+}
+
+footer .icons {
+  padding: 5px;
+  color: white;
+  font-size: 2.5rem;
 }

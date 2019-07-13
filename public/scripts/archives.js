@@ -1,10 +1,11 @@
 /* global $ */
 $(document).ready(() => {
+  //LOAD PLAYLISTS
   playlistCall();
 
+  //EVENT LISTENER FOR PLAYLISTS
   mixcloud_grid.on("click", "#image", function() {
     let key = $(this).attr("key");
-    let mq = window.matchMedia("(max-width: 576px)");
     mixcloud_content.children().remove();
     if (mq.matches) {
       mixcloud_content.append(
@@ -39,7 +40,17 @@ $(document).ready(() => {
       );
     }
   });
+
+  //TOGGLE MENU ON MOBILE VERSION
+  const menu = $("nav .bars");
+  menu.on("click", () => {
+    $(".navbar").slideToggle();
+    $(".navbar ul").toggleClass("display");
+  });
 });
+
+//CSS MEDIA QUERY VARIABLE
+let mq = window.matchMedia("(max-width: 576px)");
 
 const mixcloud_grid = $(".mixcloud-grid");
 const mixcloud_content = $(".mixcloud-content");

@@ -4,23 +4,38 @@
     flex-grow: 1;
   }
 
-  .navbar-header svg {
-    display: block !important;
-    margin: 10px;
-    font-size: 2rem;
-    color: aqua;
+  .navbar-header {
+    flex-direction: column;
+  }
+
+  .navbar {
+    display: none;
   }
 
   .navbar ul {
-    display: none !important;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
   }
 
-  .mixcloud-grid {
+  nav .bars {
+    display: block !important;
+  }
+
+  .container div h1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mixcloud-grid,
+  .spotify-grid {
     flex-basis: 100%;
+    flex-direction: column;
     overflow: scroll;
   }
 
-  .mixplayer {
+  .mixplayer,
+  .spotify-player {
     object-fit: cover;
     flex-basis: 100%;
     flex-grow: 1;
@@ -31,12 +46,7 @@
   }
 
   .playlist-card {
-    margin: 10px;
-    flex-flow: column nowrap;
-    align-content: space-around;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: solid 2px rgb(73, 63, 63);
-    border-radius: 0.5rem;
+    margin: 3rem;
   }
 
   footer {
@@ -48,38 +58,41 @@
 }
 
 body {
-  display: flex;
   margin: 0;
   flex-direction: column;
   min-height: 100vh;
   font-family: "Play", sans-serif;
 }
 
-.navbar {
+body,
+.navbar-header,
+ul {
   display: flex;
-  border: solid 2px gray;
-  flex-basis: 80px;
-  justify-content: flex-end;
-  font-size: 1.5rem;
 }
 
 .navbar ul {
-  display: flex;
   border: solid 2px black;
-  list-style: none;
+  margin: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  font-size: 1.5rem;
 }
 
 .navbar a {
   text-decoration: none;
-  color: rgb(181, 181, 181);
+  color: #b5b5b5;
 }
 
-#brand {
+ul li #brand {
   margin-right: auto;
 }
 
-.navbar-header svg {
+nav .bars {
   display: none;
+  margin: 10px;
+  font-size: 2rem;
+  color: aqua;
 }
 
 .container {
@@ -87,8 +100,14 @@ body {
   flex-basis: 800px;
 }
 
+.container h1 {
+  display: none;
+  color: #88506f;
+}
+
 .mixcloud-grid,
 .spotify-grid {
+  display: flex;
   background-color: rgb(181, 181, 181);
   border-radius: 0.5rem;
 }
@@ -104,6 +123,7 @@ body {
   display: flex;
   flex-flow: column wrap;
   align-content: space-around;
+  font-size: 1.5rem;
   background-color: rgba(255, 255, 255, 0.7);
   border: solid 2px rgb(73, 63, 63);
   border-radius: 0.5rem;
@@ -115,6 +135,10 @@ body {
 .playlist-card img {
   width: 100%;
   object-fit: cover;
+}
+
+.playlist-card span {
+  display: block;
 }
 
 #caption {
@@ -135,8 +159,9 @@ footer {
   background-color: aqua;
 }
 
-footer .icons {
+footer .icons a {
   padding: 5px;
+  text-decoration: none;
   color: white;
   font-size: 2.5rem;
 }

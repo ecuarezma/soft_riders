@@ -1,41 +1,89 @@
 /* global body $ */
 $(document).ready(() => {
+  //TOGGLE MENU ON MOBILE VERSION
+  const menu = $("nav .bars");
+  menu.on("click", () => {
+    $(".navbar").slideToggle();
+    $(".navbar ul").toggleClass("display");
+  });
 
+  //CALLING SPOTIFY API
+  fetch(url, {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json().then(data => data.items))
+    .then(loadPlaylists);
 
-  
-//CALLING SPOTIFY API
-fetch(url, { 
-  headers: {'Authorization':`Bearer ${token}`}
-})
-.then(res => res.json().then(data => data.items))
-.then(loadPlaylists)
-
+  //EVENT LISTENER FOR PLAYLISTS
+  spotify_grid.on("click", "#image", function() {
+    let key = $(this).attr("key");
+    spotify_content.children().remove();
+    if (mq.matches) {
+      spotify_content.append(
+        `<div class="spotify-player">
+          <iframe 
+            src="https://open.spotify.com/embed/playlist/${key}"
+            width="100%"
+            height="80px"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media">
+          </iframe>
+        </div>`
+      );
+    } else {
+      spotify_content.append(
+        `<div class="spotify-player">
+          <img  id="play-image" 
+                src="${$(this).attr("src")}" 
+                width="100%" 
+                style="object-fit: cover; border-radius: .5rem"
+          />
+          <iframe 
+            src="https://open.spotify.com/embed/playlist/${key}"
+            width="100%"
+            height="400px"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media">
+          </iframe>
+        </div>`
+      );
+    }
+  });
 });
+//API VARIABLES
 let token = x;
-const user = 'englishwallpaper';
+const user = "englishwallpaper";
 const url = `https://api.spotify.com/v1/users/${user}/playlists?limit=50`;
 
-function loadPlaylists(data){
-  data.map(playlist => {
-    const src           = playlist.images[0].url,
-          display_name  = playlist.owner.display_name
-    let newDiv = 
-    $(`<div class="playlist-card">
-        <img id="image" src= "${src}"/>
-      </div>`)
-    if(display_name !== 'Miki Lee'){
-      $('.spotify-grid').append(newDiv);
-    };
+function loadPlaylists(data) {
+  data.map((playlist, index) => {
+    const src = playlist.images[0].url,
+      display_name = playlist.owner.display_name;
+    let newDiv = $(
+      `<div class="playlist-card">
+        <img 
+          id="image" 
+          src="${src}"
+          alt="playlist-${index}"
+          key="${playlist.id}"
+        />
+        <p id="caption">
+          ${playlist.name}
+          <span>Curated by ${display_name}</span>
+        </p>
+      </div>`
+    );
+    if (display_name !== "Miki Lee") {
+      $(".spotify-grid").append(newDiv);
+    }
   });
-};
+  console.log(data);
+}
 
+//CSS MEDIA QUERY VARIABLE
+let mq = window.matchMedia("(max-width: 576px)");
 
-
-// CODE FOR SPOTIFY EMBEDDED PLAYER  
-// <iframe src="https://open.spotify.com/embed/playlist/<%= body.items[0].id %>" 
-//         width="300" 
-//         height="380" 
-//         frameborder="0" 
-//         allowtransparency="true" 
-//         allow="encrypted-media">
-// </iframe>
+const spotify_grid = $(".spotify-grid");
+const spotify_content = $(".spotify-content");

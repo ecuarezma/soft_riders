@@ -73,6 +73,7 @@ let authOptions = {
 
 // middleware for form validation
 
-app.listen(8000, () => {
-  console.log("app is running on port " + 8000);
+let port = process.env.PORT || 3000;
+app.listen(port, process.env.IP, () => {
+  console.log("app is running on port " + port);
 });

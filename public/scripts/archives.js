@@ -44,8 +44,9 @@ $(document).ready(() => {
   //TOGGLE MENU ON MOBILE VERSION
   const menu = $("nav .bars");
   menu.on("click", () => {
-    $(".navbar").slideToggle();
-    $(".navbar ul").toggleClass("display");
+    $(".navbar ul")
+      .slideToggle()
+      .toggleClass("display");
   });
 });
 

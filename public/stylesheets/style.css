@@ -1,15 +1,18 @@
+body,
+.container,
+.container > *,
+.navbar-header,
+.navbar,
+.navbar ul,
+footer {
+  display: flex;
+}
+
 body {
   margin: 0;
   flex-direction: column;
   min-height: 100vh;
   font-family: "Open Sans Condensed", sans-serif;
-}
-
-body,
-.navbar-header,
-.navbar,
-.navbar ul {
-  display: flex;
 }
 
 .navbar {
@@ -26,6 +29,7 @@ body,
 .navbar a {
   text-decoration: none;
   color: rgba(50, 50, 50, 0.8);
+  transition: color 300ms ease-in;
 }
 
 .navbar a:hover {
@@ -48,8 +52,8 @@ nav .bars {
 }
 
 .container {
-  display: flex;
-  flex: 1 1 100%;
+  flex: 1;
+  align-content: stretch;
 }
 
 .container h1 {
@@ -59,21 +63,26 @@ nav .bars {
 
 .mixcloud-grid,
 .spotify-grid {
-  display: flex;
+  flex: 1 1 60%;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-flow: row wrap;
   background-color: rgb(181, 181, 181);
   border-radius: 0.5rem;
 }
 
 .mixcloud-content,
 .spotify-content {
-  display: flex;
+  flex: 1 1 40%;
+  transition-property: width 300ms linear;
 }
 .playlist-card {
-  display: flex;
+  flex: 0 1 20%;
   flex-flow: column wrap;
-  align-content: space-around;
+  padding: 0;
+  margin: 0.75rem;
   color: rgba(50, 50, 50, 0.8);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.7);
   border: solid 2px rgb(73, 63, 63);
@@ -84,8 +93,8 @@ nav .bars {
 }
 
 .playlist-card img {
+  border-radius: 0.25rem 0.25rem 0 0;
   width: 100%;
-  object-fit: cover;
 }
 
 .playlist-card span {
@@ -93,18 +102,19 @@ nav .bars {
   font-weight: normal;
 }
 
-#caption {
-  text-align: center;
+.caption {
   margin: 0.5rem auto;
+  padding: 5px;
+  text-align: center;
 }
 
 .playlist-card:hover {
   opacity: 1;
   transform: scale(1);
+  cursor: pointer;
 }
 
 footer {
-  display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-basis: 80px;
@@ -117,7 +127,11 @@ footer .icons a {
   color: white;
   font-size: 2.5rem;
 }
-
+@media (max-width: 1200px) {
+  .playlist-card {
+    flex: 0 1 25%;
+  }
+}
 @media (max-width: 992px) {
   .navbar ul {
     justify-content: space-evenly;
@@ -132,11 +146,14 @@ footer .icons a {
     display: none;
     margin-right: unset;
   }
+
+  .playlist-card {
+    flex: 0 1 40%;
+  }
 }
 
 @media (max-width: 576px) {
   .container {
-    display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
@@ -145,6 +162,7 @@ footer .icons a {
     font-family: "Lobster", cursive;
     font-size: 1.75rem;
     letter-spacing: 0.25rem;
+    justify-content: center;
   }
 
   .navbar-header {

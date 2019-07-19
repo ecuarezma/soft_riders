@@ -21,8 +21,10 @@ $(document).ready(() => {
     .then(loadPlaylists);
 
   //EVENT LISTENER FOR PLAYLISTS
-  spotify_grid.on("click", "#image", function() {
-    let key = $(this).attr("key");
+  spotify_grid.on("click", ".playlist-card", function() {
+    let key = $(this)
+      .children("#image")
+      .attr("key");
     spotify_content.children().remove();
     if (mq.matches) {
       spotify_content.append(
@@ -40,20 +42,22 @@ $(document).ready(() => {
     } else {
       spotify_content.append(
         `<div class="spotify-player">
-          <img  id="play-image" 
-                src="${$(this).attr("src")}" 
-                width="100%" 
-                style="object-fit: cover; border-radius: .5rem"
-          />
-          <iframe 
-            src="https://open.spotify.com/embed/playlist/${key}"
-            width="100%"
-            height="400px"
-            frameborder="0"
-            allowtransparency="true"
-            allow="encrypted-media">
-          </iframe>
-        </div>`
+        <img  id="play-image" 
+              src="${$(this)
+                .children("#image")
+                .attr("src")}" 
+              width="100%" 
+              style="object-fit: cover; border-radius: .5rem"
+        />
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/${key}"
+          width="100%"
+          height="400px"
+          frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media">
+        </iframe>
+      </div>`
       );
     }
   });
@@ -75,7 +79,7 @@ function loadPlaylists(data) {
           alt="playlist-${index}"
           key="${playlist.id}"
         />
-        <p id="caption">
+        <p class="caption">
           ${playlist.name}
           <span>Curated by ${display_name}</span>
         </p>

@@ -8,9 +8,7 @@ $(document).ready(() => {
   }
 
   menu.on("click", () => {
-    $(".navbar ul")
-      .slideToggle()
-      .toggleClass("display");
+    $(".navbar ul").slideToggle();
   });
 
   //CALLING SPOTIFY API
@@ -23,8 +21,11 @@ $(document).ready(() => {
   //EVENT LISTENER FOR PLAYLISTS
   spotify_grid.on("click", ".playlist-card", function() {
     let key = $(this)
-      .children("#image")
-      .attr("key");
+        .children("#image")
+        .attr("key"),
+      src = $(this)
+        .children("#image")
+        .attr("src");
     spotify_content.children().remove();
     if (mq.matches) {
       spotify_content.append(
@@ -43,9 +44,7 @@ $(document).ready(() => {
       spotify_content.append(
         `<div class="spotify-player">
         <img  id="play-image" 
-              src="${$(this)
-                .children("#image")
-                .attr("src")}" 
+              src="${src}" 
               width="100%" 
               style="object-fit: cover; border-radius: .5rem"
         />

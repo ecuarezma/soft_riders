@@ -75,5 +75,5 @@ let authOptions = {
 
 let port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, () => {
-  console.log("app is running on port " + port);
+  console.log(`app is running on port ${port}`);
 });

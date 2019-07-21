@@ -15,6 +15,10 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 }
 
+.navbar-header {
+  flex-basis: 80px;
+}
+
 .navbar {
   width: 100%;
 }
@@ -22,8 +26,10 @@ body {
 .navbar ul {
   width: 100%;
   justify-content: flex-end;
+  align-items: center;
   list-style-type: none;
   font-size: 2rem;
+  margin: 0;
 }
 
 .navbar a {
@@ -52,8 +58,7 @@ nav .bars {
 }
 
 .container {
-  flex: 1;
-  align-content: stretch;
+  height: calc(100vh - 160px);
 }
 
 .container h1 {
@@ -69,12 +74,12 @@ nav .bars {
   flex-flow: row wrap;
   background-color: rgb(181, 181, 181);
   border-radius: 0.5rem;
+  overflow: scroll;
 }
 
 .mixcloud-content,
 .spotify-content {
   flex: 1 1 40%;
-  transition-property: width 300ms linear;
 }
 .playlist-card {
   flex: 0 1 20%;
@@ -155,10 +160,11 @@ footer .icons a {
 @media (max-width: 576px) {
   .container {
     flex-direction: column;
-    flex-grow: 1;
+    flex-basis: calc(100vh - 150px);
   }
 
   .container .title {
+    margin: 0;
     font-family: "Lobster", cursive;
     font-size: 1.75rem;
     letter-spacing: 0.25rem;
@@ -166,7 +172,9 @@ footer .icons a {
   }
 
   .navbar-header {
-    flex-direction: column;
+    flex-basis: 0;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   .navbar ul {
@@ -174,17 +182,27 @@ footer .icons a {
   }
 
   .navbar ul li {
+    width: 200px;
     font-size: 2.5rem;
     font-weight: bold;
     margin-right: auto;
-    padding-left: 2rem;
+    padding: 1.75rem;
+    background-color: rgb(230, 230, 230);
+    border-bottom: solid 2px black;
+    transition: background-color 300ms linear;
+  }
+
+  .navbar ul li:hover {
+    background-color: aqua;
   }
 
   #brand {
     display: none;
   }
 
-  nav .bars {
+  .bars {
+    margin: 0 1rem;
+    height: 50px;
     display: block !important;
   }
 
@@ -195,9 +213,16 @@ footer .icons a {
 
   .mixcloud-grid,
   .spotify-grid {
-    flex-basis: 100%;
-    flex-direction: column;
+    justify-content: unset;
+    align-content: unset;
+    flex: 0 100%;
+    flex-flow: column nowrap;
     overflow: scroll;
+  }
+
+  .mixcloud-content,
+  .spotify-content {
+    flex: unset;
   }
 
   .mixplayer,
@@ -213,9 +238,5 @@ footer .icons a {
 
   .playlist-card {
     margin: 3rem;
-  }
-
-  footer {
-    flex-basis: 50px;
   }
 }

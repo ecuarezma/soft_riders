@@ -4,6 +4,12 @@ body,
 .navbar-header,
 .navbar,
 .navbar ul,
+.spotify-content,
+.spotify-grid,
+.mixcloud-content,
+.mixcloud-grid,
+.spotify-player,
+.playlist-card,
 footer {
   display: flex;
 }
@@ -13,6 +19,10 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: "Open Sans Condensed", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar-header {
@@ -58,6 +68,7 @@ nav .bars {
 }
 
 .container {
+  justify-content: space-around;
   height: calc(100vh - 160px);
 }
 
@@ -69,36 +80,46 @@ nav .bars {
 .mixcloud-grid,
 .spotify-grid {
   flex: 1 1 60%;
+  padding: 1rem;
   justify-content: space-evenly;
   align-content: flex-start;
   flex-flow: row wrap;
-  background-color: rgb(181, 181, 181);
-  border-radius: 0.5rem;
   overflow: scroll;
 }
 
 .mixcloud-content,
 .spotify-content {
-  flex: 1 1 40%;
+  flex: 0 1 40%;
+  padding: 1rem;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
 }
+
+.mixcloud-content p,
+.spotify-content p {
+  font-size: 3.5rem;
+  color: rgba(155, 36, 23, 0.8);
+  filter: drop-shadow(0 0.125rem 0.3rem #aa9da5);
+}
+
 .playlist-card {
   flex: 0 1 20%;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   padding: 0;
-  margin: 0.75rem;
+  margin: 1rem;
   color: rgba(50, 50, 50, 0.8);
   font-size: 1.25rem;
   font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: solid 2px rgb(73, 63, 63);
-  border-radius: 0.5rem;
   opacity: 0.75;
   transform: scale(0.95);
   transition: transform 200ms ease-in, opacity 300ms linear 150ms;
 }
 
 .playlist-card img {
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: 0 0 1rem rgba(100, 100, 100, 0.8);
   width: 100%;
 }
 
@@ -117,6 +138,17 @@ nav .bars {
   opacity: 1;
   transform: scale(1);
   cursor: pointer;
+}
+
+.spotify-player {
+  flex-flow: column nowrap;
+  width: 350px;
+  filter: drop-shadow(0 0 0.5rem rgba(100, 100, 100, 0.8));
+}
+
+#play-image {
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 footer {
@@ -155,26 +187,18 @@ footer .icons a {
   .playlist-card {
     flex: 0 1 40%;
   }
+
+  .spotify-player {
+    width: 250px;
+  }
 }
 
 @media (max-width: 576px) {
-  .container {
-    flex-direction: column;
-    flex-basis: calc(100vh - 150px);
-  }
-
-  .container .title {
-    margin: 0;
-    font-family: "Lobster", cursive;
-    font-size: 1.75rem;
-    letter-spacing: 0.25rem;
-    justify-content: center;
-  }
-
   .navbar-header {
     flex-basis: 0;
     flex-direction: row;
     justify-content: flex-end;
+    margin: 0;
   }
 
   .navbar ul {
@@ -184,16 +208,23 @@ footer .icons a {
   .navbar ul li {
     width: 200px;
     font-size: 2.5rem;
-    font-weight: bold;
     margin-right: auto;
     padding: 1.75rem;
-    background-color: rgb(230, 230, 230);
+    background: linear-gradient(
+      90deg,
+      rgba(220, 220, 220, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     border-bottom: solid 2px black;
-    transition: background-color 300ms linear;
+    transition: background 300ms linear;
   }
 
   .navbar ul li:hover {
-    background-color: aqua;
+    background: linear-gradient(
+      90deg,
+      rgb(0, 251, 255) 0%,
+      rgba(253, 29, 29, 0) 100%
+    );
   }
 
   #brand {
@@ -206,9 +237,24 @@ footer .icons a {
     display: block !important;
   }
 
-  .container div h1 {
+  .fa-bars {
+    font-size: 3rem;
+  }
+
+  .container {
+    flex-direction: column;
+    flex-basis: calc(100vh - 150px);
+  }
+
+  .container .title h1 {
     display: flex;
+    height: 80px;
+    margin: 1rem auto;
+    font-family: "Lobster", cursive;
+    font-size: 3rem;
+    letter-spacing: 0.25rem;
     justify-content: center;
+    align-items: center;
   }
 
   .mixcloud-grid,
@@ -220,16 +266,30 @@ footer .icons a {
     overflow: scroll;
   }
 
+  .playlist-card {
+    font-size: 1.75rem;
+  }
+
   .mixcloud-content,
   .spotify-content {
     flex: unset;
+    margin: 0;
+    padding: 0;
+  }
+
+  .spotify-content p {
+    display: none;
   }
 
   .mixplayer,
   .spotify-player {
-    object-fit: cover;
-    flex-basis: 100%;
-    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    filter: unset;
   }
 
   #play-image {

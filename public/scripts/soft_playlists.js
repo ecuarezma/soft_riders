@@ -45,8 +45,6 @@ $(document).ready(() => {
         `<div class="spotify-player">
         <img  id="play-image" 
               src="${src}" 
-              width="100%" 
-              style="object-fit: cover; border-radius: .5rem"
         />
         <iframe 
           src="https://open.spotify.com/embed/playlist/${key}"

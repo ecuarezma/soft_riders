@@ -5,8 +5,13 @@
         <video playsinline autoplay muted loop poster="" id="bgvid">
           <source src="/media/videos/strawberry.m4v#t=5" type="video/mp4">
         </video>
-      </div>
+      </div>  
+    </div>
+    <div class="container">
       <div id="audio-player">
+        <p>
+          Listen live from Jolt Radio!
+        </p>
         <audio
           controls
           src="http://198.27.80.205:5220/;stream/1"
@@ -15,8 +20,14 @@
               <code>audio</code> element.
         </audio>
       </div>
-        
-    <% include ./partials/signup %>  
+      <div class="button">
+        <p>Join the Mailing List!</p>
+      </div>
+    </div>
+    <div class="signup-container">
+      <% include ./partials/signup %>
+    </div>   
+      
 
     <% include ./partials/footer %>
   <script type="text/javascript" src="scripts/script.js"></script>

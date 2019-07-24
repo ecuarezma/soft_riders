@@ -26,7 +26,6 @@ $(document).ready(() => {
           <img  id="play-image" 
                 src="${$(this).attr("src")}" 
                 width="100%" 
-                style="object-fit: cover; border-radius: .5rem"
           />
           <iframe 
             id="play-widget" 
@@ -40,13 +39,15 @@ $(document).ready(() => {
       );
     }
   });
-
   //TOGGLE MENU ON MOBILE VERSION
   const menu = $("nav .bars");
+
+  if (mq.matches) {
+    $("#archives, .navbar ul").css("display", "none");
+  }
+
   menu.on("click", () => {
-    $(".navbar ul")
-      .slideToggle()
-      .toggleClass("display");
+    $(".navbar ul").slideToggle();
   });
 });
 
@@ -69,7 +70,7 @@ function addPlaylists(playlists) {
         alt="${playlist.name} - image not found" 
         key="${playlist.key}" 
       />
-      <p id="caption">${playlist.name}</p>
+      <p class="caption">${playlist.name}</p>
     </div`
     );
     mixcloud_grid.append(newDiv);

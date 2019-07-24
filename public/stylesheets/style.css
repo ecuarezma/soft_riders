@@ -140,9 +140,10 @@ nav .bars {
   cursor: pointer;
 }
 
-.spotify-player {
+.spotify-player,
+.mixplayer {
   flex-flow: column nowrap;
-  width: 350px;
+  width: 340px;
   filter: drop-shadow(0 0 0.5rem rgba(100, 100, 100, 0.8));
 }
 
@@ -188,7 +189,8 @@ footer .icons a {
     flex: 0 1 40%;
   }
 
-  .spotify-player {
+  .spotify-player,
+  .mixplayer {
     width: 250px;
   }
 }
@@ -196,12 +198,15 @@ footer .icons a {
 @media (max-width: 576px) {
   .navbar-header {
     flex-basis: 0;
+    position: relative;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
   }
 
   .navbar ul {
+    left: 0;
+    top: 0;
     flex-direction: column;
   }
 
@@ -232,35 +237,38 @@ footer .icons a {
   }
 
   .bars {
-    margin: 0 1rem;
     height: 50px;
+    width: 50px;
     display: block !important;
+    position: absolute;
+    top: 30px;
+    right: 30px;
   }
 
   .fa-bars {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .container {
     flex-direction: column;
-    flex-basis: calc(100vh - 150px);
+    flex-basis: calc(100vh - 80px);
   }
 
   .container .title h1 {
-    display: flex;
-    height: 80px;
-    margin: 1rem auto;
+    display: unset;
+    position: relative;
+    top: 100px;
+    margin: 2rem auto;
+    border-bottom: solid 2px #88506f;
     font-family: "Lobster", cursive;
     font-size: 3rem;
-    letter-spacing: 0.25rem;
-    justify-content: center;
-    align-items: center;
   }
 
   .mixcloud-grid,
   .spotify-grid {
     justify-content: unset;
     align-content: unset;
+    margin-top: 100px;
     flex: 0 100%;
     flex-flow: column nowrap;
     overflow: scroll;
@@ -268,35 +276,28 @@ footer .icons a {
 
   .playlist-card {
     font-size: 1.75rem;
+    margin: 3rem;
   }
 
   .mixcloud-content,
   .spotify-content {
-    flex: unset;
-    margin: 0;
-    padding: 0;
+    all: unset;
   }
 
-  .spotify-content p {
+  .spotify-content p,
+  .mixcloud-content p {
     display: none;
   }
 
   .mixplayer,
   .spotify-player {
-    display: flex;
-    align-items: flex-end;
-    height: 100px;
-    width: 100%;
+    all: unset;
+    position: relative;
+    top: 5px;
     margin: 0;
-    padding: 0;
-    filter: unset;
   }
 
   #play-image {
     display: none;
-  }
-
-  .playlist-card {
-    margin: 3rem;
   }
 }

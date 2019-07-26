@@ -7,4 +7,11 @@ $(document).ready(() => {
   $(".signup-container").on("click", ".fa-times", () => {
     $(".signup-container").fadeOut(200);
   });
+
+  $("nav .bars").on("click", () => {
+    $("video, footer, .container:not(.navbar-header)").toggleClass(
+      "blur-background"
+    );
+    $(".navbar ul").slideToggle();
+  });
 });

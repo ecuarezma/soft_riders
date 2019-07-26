@@ -230,12 +230,12 @@ footer .icons a {
   }
 
   nav .bars {
-    height: 50px;
-    width: 50px;
     display: unset;
     position: absolute;
     top: 30px;
-    right: 30px;
+    right: 0;
+    height: 50px;
+    width: 50px;
   }
 
   .fa-bars {

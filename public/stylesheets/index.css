@@ -126,7 +126,7 @@ video {
   padding: 1rem;
   width: 300px;
   color: rgb(60, 42, 42);
-  background: rgb(211, 196, 196);
+  background: rgb(198, 198, 201);
   border: solid 0.2rem rgb(113, 109, 101);
   border-radius: 0.5rem;
   z-index: 100;
@@ -226,17 +226,28 @@ footer .icons a {
 }
 
 @media (max-width: 576px) {
+  body > * {
+    transition: all 300ms ease;
+  }
+
+  .blur-background {
+    filter: blur(0.3rem);
+    transform: scale(1.025);
+  }
+
   .navbar-header {
     flex-basis: 0;
     position: relative;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
+    z-index: 1000;
   }
 
   .navbar ul {
     display: none;
     flex-direction: column;
+    position: absolute;
   }
 
   .navbar ul li {
@@ -245,6 +256,7 @@ footer .icons a {
     margin-left: auto;
     padding: 1.75rem;
     border-bottom: solid 2px rgb(0, 251, 255);
+    text-shadow: -1px 1px 0 #0a0e27;
   }
 
   #brand {
@@ -252,12 +264,12 @@ footer .icons a {
   }
 
   nav .bars {
-    height: 50px;
-    width: 50px;
     display: unset;
     position: absolute;
     top: 30px;
-    right: 30px;
+    right: 0;
+    height: 50px;
+    width: 50px;
   }
 
   .fa-bars {

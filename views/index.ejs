@@ -1,12 +1,15 @@
 <% include ./partials/header %>
-    
+    <video playsinline autoplay muted loop poster="" id="bgvid">
+      <source src="/media/videos/strawberry.m4v#t=5" type="video/mp4">
+    </video>
+
     <div class="container">
-      <div id="video-container">
-        <video playsinline autoplay muted loop poster="" id="bgvid">
-          <source src="/media/videos/strawberry.m4v#t=5" type="video/mp4">
-        </video>
-      </div>  
+      <div class="signup-container">
+        <% include ./partials/signup %>
+        <i class="fas fa-times"></i>
+      </div>   
     </div>
+
     <div class="container">
       <div id="audio-player">
         <p>
@@ -20,14 +23,10 @@
               <code>audio</code> element.
         </audio>
       </div>
-      <div class="button">
+      <div id="join-button">
         <p>Join the Mailing List!</p>
       </div>
-    </div>
-    <div class="signup-container">
-      <% include ./partials/signup %>
     </div>   
-      
 
     <% include ./partials/footer %>
   <script type="text/javascript" src="scripts/script.js"></script>

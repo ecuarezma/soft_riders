@@ -8,6 +8,8 @@ body,
 .navbar,
 .navbar ul,
 .container,
+.signup-container,
+.signup,
 footer {
   display: flex;
 }
@@ -19,7 +21,7 @@ body {
     rgba(220, 220, 220, 1) 0%,
     rgba(0, 0, 0, 1) 60%
   );
-  flex-direction: column;
+  flex-flow: column nowrap;
   font-family: "Open Sans Condensed", sans-serif;
 }
 
@@ -66,6 +68,7 @@ nav .bars {
 }
 
 .container {
+  position: relative;
   flex-flow: column nowrap;
   flex: 1;
   align-items: center;
@@ -79,7 +82,6 @@ nav .bars {
   text-align: center;
 }
 
-#video-container,
 video {
   object-fit: cover;
   position: absolute;
@@ -93,48 +95,173 @@ video {
 
 #audio-player audio {
   margin: 1rem;
+  outline: none;
 }
 
-.button {
+#join-button {
   position: relative;
-  bottom: 1rem;
+  bottom: 4rem;
   width: 200px;
-  background-color: rgba(201, 0, 194, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 3rem;
   margin-top: auto;
+  transition: all 200ms ease;
 }
 
-.button:hover {
+#join-button p {
+  padding: 0.75rem;
+}
+
+#join-button:hover {
+  color: white;
+  border: 2px solid white;
   cursor: pointer;
 }
 
-.signup {
+.signup-container {
   display: none;
-  position: relative;
-  text-align: center;
-  background: white;
+  position: absolute;
+  top: 180px;
+  margin: auto;
   padding: 1rem;
+  width: 300px;
+  color: rgb(60, 42, 42);
+  background: rgb(211, 196, 196);
   border: solid 0.2rem rgb(113, 109, 101);
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 5px 8px rgba(186, 206, 205, 0.5);
-  flex-direction: column;
-  justify-content: center;
+  z-index: 100;
 }
 
-.signup #field {
+.fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.fa-times:hover {
+  transform: scale(1.05);
+}
+
+.signup {
+  padding: 1rem;
+  flex-flow: column nowrap;
+  font-size: 1.5rem;
+}
+
+.signup input {
+  all: unset;
+}
+
+#field {
   margin-bottom: 0.5rem;
+}
+
+#field input {
+  margin: 0.25rem;
+  width: 100%;
+  text-indent: 1rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: border 200ms ease;
+}
+
+#field input:focus,
+#field input:hover {
+  border: 2px solid rgb(70, 148, 208);
+}
+
+#submit {
+  margin: 1rem auto;
+}
+
+#submit input {
+  padding: 0.25rem;
+  width: 150px;
+  border-radius: 2rem;
+  color: rgba(203, 203, 203, 0.8);
+  background: rgb(70, 148, 208);
+  text-align: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+#submit input:hover {
+  color: white;
+  transform: scale(1.05);
 }
 
 footer {
   justify-content: flex-end;
   align-items: center;
   flex-basis: 80px;
-  background-color: aqua;
+}
+
+.icons {
+  margin-right: 1rem;
 }
 
 footer .icons a {
-  padding: 5px;
+  padding: 0 1rem 0.5rem 0;
   text-decoration: none;
-  color: white;
+  color: rgba(203, 203, 203, 0.8);
   font-size: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .navbar ul {
+    justify-content: space-evenly;
+    padding: unset;
+  }
+
+  .navbar li {
+    margin-right: unset;
+  }
+
+  #brand {
+    display: none;
+    margin-right: unset;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-header {
+    flex-basis: 0;
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    width: 200px;
+    font-size: 2.5rem;
+    margin-left: auto;
+    padding: 1.75rem;
+    border-bottom: solid 2px rgb(0, 251, 255);
+  }
+
+  #brand {
+    display: none;
+  }
+
+  nav .bars {
+    height: 50px;
+    width: 50px;
+    display: unset;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
+  .fa-bars {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
 }

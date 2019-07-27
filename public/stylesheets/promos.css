@@ -76,14 +76,22 @@ nav .bars {
 
 .promos-player {
   margin: 1rem;
+  flex: 1;
   justify-content: center;
   align-items: center;
 }
 
-.promos-player video#my-video {
+.promos-player video {
+  height: 100%;
+  width: 100%;
+}
+
+.promos-player p {
+  font-size: 2rem;
 }
 
 .promos-container {
+  padding-left: 4rem;
   flex-flow: row nowrap;
   align-items: flex-end;
   overflow-y: auto;
@@ -94,7 +102,21 @@ div.promo {
   margin: 1rem;
   flex: 1 0 200px;
   height: 250px;
-  transform: skew(-30deg);
+  border: 2px solid black;
+  transform: skew(-30deg) translate(0, 0);
+  transition: all 200ms ease;
+  overflow: hidden;
+}
+
+div.promo:hover {
+  cursor: pointer;
+  transform: skew(-30deg) translate(2px, -5px);
+  filter: brightness(50%) drop-shadow(-0.3rem 0.3rem 0.25rem rgb(100, 100, 100));
+}
+
+div.promo video {
+  width: 100%;
+  transform: skew(30deg) scale(2.5);
 }
 
 .promo:nth-child(even) {
@@ -171,6 +193,10 @@ footer .icons a {
     background-color: rgba(203, 203, 203, 0.8);
     border-bottom: solid 2px rgb(0, 251, 255);
     box-shadow: 0 0 1rem rgba(100, 100, 100, 0.8);
+  }
+
+  .promos-player {
+    margin: 2rem auto;
   }
 
   #brand,

@@ -1,82 +1,194 @@
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-      margin: 0;
-      font-family: 'Play', sans-serif;
-      display: flex;
-      flex-direction: column;
+html,
+body {
+  height: 100%;
+}
+
+body,
+.container,
+.promos-container,
+.promos-player,
+.navbar-header,
+.navbar,
+.navbar ul,
+footer {
+  display: flex;
+}
+
+body {
+  margin: 0;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar-header {
+  flex-basis: 80px;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar ul {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  list-style-type: none;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: rgba(50, 50, 50, 0.8);
+  transition: color 300ms ease-in;
+}
+
+.navbar a:hover {
+  color: rgb(155, 36, 23);
+}
+
+.navbar li {
+  margin-right: 1.5rem;
+}
+
+#brand {
+  margin-right: auto;
+}
+
+nav .bars {
+  display: none;
+  margin: 10px;
+  font-size: 2rem;
+  color: aqua;
+}
+
+.container {
+  margin-top: 2rem;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.promos-player {
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.promos-player video#my-video {
+}
+
+.promos-container {
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  overflow-y: auto;
+}
+
+div.promo {
+  display: flex;
+  margin: 1rem;
+  flex: 1 0 200px;
+  height: 250px;
+  transform: skew(-30deg);
+}
+
+.promo:nth-child(even) {
+  background-color: red;
+}
+.promo:nth-child(odd) {
+  background-color: blue;
+}
+
+footer {
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 80px;
+  background-color: rgb(68, 65, 75);
+}
+
+footer .icons a {
+  padding: 0 1rem 0.5rem 0;
+  text-decoration: none;
+  color: rgba(203, 203, 203, 0.8);
+  font-size: 2.5rem;
+}
+
+.icons {
+  margin-right: 1rem;
+}
+
+@media (max-width: 992px) {
+  .navbar ul {
+    justify-content: space-evenly;
+    padding: unset;
   }
 
-  .navbar {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 80px;
-    justify-content: flex-end;
-    font-size: 1.5rem;
+  .navbar li {
+    margin-right: unset;
   }
-  
-  .navbar a {
-    padding: 2rem;
-    text-decoration: none;
-    color: rgb(181, 181, 181);
-  }
-  
+
   #brand {
-    margin-right: auto;
+    display: none;
+    margin-right: unset;
   }
-  
- 
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-    margin: 0 10%;
+}
+
+@media (max-width: 576px) {
+  body > * {
+    transition: all 300ms ease;
   }
- 
-  .promos-player {
-    display: flex;
-    flex: 1 1 auto;
+
+  .blur-background {
+    filter: blur(0.3rem) brightness(50%);
+    transform: scale(1.025);
   }
-  
-  .promos-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .promo {
-    width: 10rem;
-    height: 14rem;
-    margin: 0 .5rem;
-    transform: skew(-30deg);
-  }
-  
-  .promo:nth-child(even){
-    background-color: red;
-  }
-  .promo:nth-child(odd) {
-    background-color: blue;
-  }
-  
-  
-  footer {
-    display: flex;
-    width: 100%;
-    height: 75px;
-    background-color: aqua;
-  }
-  
-  .icons {
-    display: flex;
+
+  .navbar-header {
+    flex-basis: 0;
+    position: relative;
+    flex-direction: row;
     justify-content: flex-end;
-    font-size: 2.5rem;
-    height: 100%;
-    width: 100%;
+    margin: 0;
+    z-index: 1000;
   }
-  
-  
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+  }
+
+  .navbar ul li {
+    width: 200px;
+    font-size: 2.5rem;
+    margin-left: auto;
+    padding: 1.75rem;
+    background-color: rgba(203, 203, 203, 0.8);
+    border-bottom: solid 2px rgb(0, 251, 255);
+    box-shadow: 0 0 1rem rgba(100, 100, 100, 0.8);
+  }
+
+  #brand,
+  #promos {
+    display: none;
+  }
+
+  nav .bars {
+    display: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+  }
+
+  .fa-bars {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+}

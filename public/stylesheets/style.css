@@ -154,10 +154,14 @@ footer {
 }
 
 footer .icons a {
-  padding: 5px;
+  padding: 0 1rem 0.5rem 0;
   text-decoration: none;
-  color: white;
+  color: rgba(203, 203, 203, 0.8);
   font-size: 2.5rem;
+}
+
+.icons {
+  margin-right: 1rem;
 }
 @media (max-width: 1200px) {
   .playlist-card {

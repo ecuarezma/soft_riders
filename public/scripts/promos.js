@@ -2,7 +2,9 @@
 $(document).ready(() => {
   //MOBILE MENU TOGGLE
   $("nav .bars").on("click", () => {
-    $("footer, .container:not(.navbar-header)").toggleClass("blur-background");
+    $("footer, .container:not(.navbar-header), #promos-title").toggleClass(
+      "blur-background"
+    );
     $(".navbar ul").slideToggle();
   });
 
@@ -14,7 +16,7 @@ $(document).ready(() => {
       .children()
       .remove();
     $(".promos-player").append(
-      `<video  id='my-video' class='video-js' controls preload='auto'
+      `<video  id='my-video' class='video-js' controls autoplay preload='auto'
               poster='' data-setup='{}'>
         <source src='${src}' type='video/mp4'>
         <p class='vjs-no-js'>

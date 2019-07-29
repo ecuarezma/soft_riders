@@ -18,6 +18,7 @@ body {
   margin: 0;
   flex-direction: column;
   min-height: 100vh;
+  background-color: rgb(213, 212, 205);
   font-family: "Open Sans Condensed", sans-serif;
 }
 
@@ -64,7 +65,8 @@ nav .bars {
   display: none;
   margin: 10px;
   font-size: 2rem;
-  color: aqua;
+  color: rgb(4, 218, 214);
+  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
 }
 
 .container {
@@ -76,6 +78,7 @@ nav .bars {
 
 .promos-player {
   margin: 1rem;
+  padding: 1rem;
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -88,6 +91,8 @@ nav .bars {
 
 .promos-player p {
   font-size: 2rem;
+  color: rgba(155, 36, 23, 0.8);
+  filter: drop-shadow(0 0.125rem 0.3rem #aa9da5);
 }
 
 .promos-container {
@@ -119,13 +124,6 @@ div.promo video {
   transform: skew(30deg) scale(2.5);
 }
 
-.promo:nth-child(even) {
-  background-color: red;
-}
-.promo:nth-child(odd) {
-  background-color: blue;
-}
-
 footer {
   justify-content: flex-end;
   align-items: center;
@@ -142,6 +140,19 @@ footer .icons a {
 
 .icons {
   margin-right: 1rem;
+}
+
+#promos-title {
+  margin-left: 1.25rem;
+}
+
+#promos-title p {
+  display: none;
+  margin: 0;
+  padding: 0;
+  font-size: 2.75rem;
+  text-shadow: -3px 3px 0 rgb(213, 212, 205), -6px 6px 0 rgba(98, 55, 150, 0.65);
+  color: rgba(68, 65, 75, 0.9);
 }
 
 @media (max-width: 992px) {
@@ -166,7 +177,7 @@ footer .icons a {
   }
 
   .blur-background {
-    filter: blur(0.3rem) brightness(50%);
+    filter: blur(3px) brightness(50%);
     transform: scale(1.025);
   }
 
@@ -186,22 +197,22 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 200px;
+    width: 40%;
     font-size: 2.5rem;
     margin-left: auto;
-    padding: 1.75rem;
-    background-color: rgba(203, 203, 203, 0.8);
+    padding: 1.25rem;
+    color: rgb(50, 50, 50);
+    text-shadow: 1px 1px 0 rgb(179, 254, 255);
     border-bottom: solid 2px rgb(0, 251, 255);
-    box-shadow: 0 0 1rem rgba(100, 100, 100, 0.8);
-  }
-
-  .promos-player {
-    margin: 2rem auto;
   }
 
   #brand,
   #promos {
     display: none;
+  }
+
+  #promos-title p {
+    display: unset;
   }
 
   nav .bars {

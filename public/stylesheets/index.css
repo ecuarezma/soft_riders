@@ -18,6 +18,10 @@ footer {
   display: none;
 }
 
+.darken {
+  filter: brightness(10%);
+}
+
 body {
   margin: 0;
   background: linear-gradient(
@@ -68,7 +72,7 @@ nav .bars {
   display: none;
   margin: 10px;
   font-size: 2rem;
-  color: aqua;
+  color: rgb(4, 218, 214);
 }
 
 .container {
@@ -77,7 +81,7 @@ nav .bars {
   flex: 1;
   align-items: center;
   margin: auto;
-  color: rgba(203, 203, 203, 0.8);
+  color: rgb(191, 191, 191);
   font-size: 1.5rem;
 }
 
@@ -95,6 +99,10 @@ video {
   height: 60vh;
   opacity: 0.9;
   z-index: -100;
+}
+
+#audio-player {
+  transition: filter 400ms ease;
 }
 
 #audio-player audio {
@@ -129,8 +137,8 @@ video {
   margin: auto;
   padding: 1rem;
   width: 300px;
-  color: rgb(60, 42, 42);
-  background: rgb(198, 198, 201);
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
   border: solid 0.2rem rgb(113, 109, 101);
   border-radius: 0.5rem;
   z-index: 100;
@@ -140,6 +148,7 @@ video {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  color: rgb(4, 218, 214);
   cursor: pointer;
 }
 
@@ -166,14 +175,13 @@ video {
   width: 100%;
   text-indent: 1rem;
   border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 2px solid rgba(0, 0, 0, 0);
+  border: 2px solid rgb(113, 109, 101);
   transition: border 200ms ease;
 }
 
 #field input:focus,
 #field input:hover {
-  border: 2px solid rgb(70, 148, 208);
+  border: 2px solid rgb(4, 218, 214);
 }
 
 #submit {
@@ -184,15 +192,14 @@ video {
   padding: 0.25rem;
   width: 150px;
   border-radius: 2rem;
-  color: rgba(203, 203, 203, 0.8);
-  background: rgb(70, 148, 208);
+  color: rgb(255, 255, 255);
+  background: rgb(4, 218, 214);
   text-align: center;
   cursor: pointer;
   transition: all 200ms ease;
 }
 
 #submit input:hover {
-  color: white;
   transform: scale(1.05);
 }
 
@@ -235,7 +242,7 @@ footer .icons a {
   }
 
   .blur-background {
-    filter: blur(0.3rem);
+    filter: blur(3px) brightness(60%);
     transform: scale(1.025);
   }
 
@@ -255,11 +262,11 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 200px;
+    width: 40%;
     font-size: 2.5rem;
     margin-left: auto;
-    padding: 1.75rem;
-    border-bottom: solid 2px rgb(0, 251, 255);
+    padding: 1.25rem;
+    border-bottom: solid 2px rgb(4, 218, 214);
     text-shadow: -1px 1px 0 #0a0e27;
   }
 
@@ -271,7 +278,7 @@ footer .icons a {
   nav .bars {
     display: unset;
     position: absolute;
-    top: 30px;
+    top: 15px;
     right: 0;
     height: 50px;
     width: 50px;

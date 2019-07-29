@@ -12,6 +12,7 @@ body {
   margin: 0;
   flex-direction: column;
   min-height: 100vh;
+  background-color: rgb(213, 212, 205);
   font-family: "Open Sans Condensed", sans-serif;
 }
 
@@ -58,7 +59,8 @@ nav .bars {
   display: none;
   margin: 10px;
   font-size: 2rem;
-  color: aqua;
+  color: rgb(4, 218, 214);
+  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
 }
 
 .container {
@@ -68,7 +70,13 @@ nav .bars {
 
 .container h1 {
   display: none;
-  color: #88506f;
+  position: relative;
+  top: 100px;
+  margin: 2rem auto;
+  font-weight: normal;
+  font-size: 4rem;
+  text-shadow: -3px 3px 0 rgb(213, 212, 205), -6px 6px 0 rgba(98, 55, 150, 0.65);
+  color: rgba(68, 65, 75, 0.9);
 }
 
 .mixcloud-grid,
@@ -208,25 +216,11 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 200px;
+    width: 40%;
     font-size: 2.5rem;
-    margin-right: auto;
-    padding: 1.75rem;
-    background: linear-gradient(
-      90deg,
-      rgba(220, 220, 220, 1) 0%,
-      rgba(255, 255, 255, 0.8) 60%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    border-bottom: solid 2px black;
-  }
-
-  .navbar ul li:hover {
-    background: linear-gradient(
-      90deg,
-      rgb(0, 251, 255) 0%,
-      rgba(253, 29, 29, 0) 100%
-    );
+    margin-left: auto;
+    padding: 1.25rem;
+    border-bottom: solid 2px rgb(4, 218, 214);
   }
 
   #brand {
@@ -236,7 +230,7 @@ footer .icons a {
   nav .bars {
     display: unset;
     position: absolute;
-    top: 30px;
+    top: 15px;
     right: 0;
     height: 50px;
     width: 50px;
@@ -254,12 +248,6 @@ footer .icons a {
 
   .container .title h1 {
     display: unset;
-    position: relative;
-    top: 100px;
-    margin: 2rem auto;
-    border-bottom: solid 2px #88506f;
-    font-family: "Lobster", cursive;
-    font-size: 3rem;
   }
 
   .mixcloud-grid,

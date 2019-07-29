@@ -3,8 +3,7 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   app = express(),
   request = require("request"), // "Request" library
-  db = require("./models"),
-  playlistRoutes = require("./routes/playlists");
+  db = require("./models");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,8 +51,6 @@ app.get("/promos", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
-
-app.use("/api/playlists", playlistRoutes);
 
 const client_id = process.env.CLIENT_ID; // Your client id
 const client_secret = process.env.CLIENT_SECRET; // Your secret

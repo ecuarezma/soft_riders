@@ -8,11 +8,11 @@ Have all the content be easily accessible and maintained for users on both deskt
 
 ### APIs being consumed
 
-Spotify API using authentication tokens and user permissions
-Mixcloud API directly from the api.mixcloud site
+  * Spotify API using authentication tokens and user permissions
+  * Mixcloud API directly from the api.mixcloud site
 
 ### Built with
 
-..* Node.js using the Express framework.
-..* MongoDB for storing mailing list.
-..* Heroku for deployment.
+  * Node.js using the Express framework.
+  * MongoDB for storing mailing list.
+  * Heroku for deployment.

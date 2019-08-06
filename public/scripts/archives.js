@@ -47,6 +47,7 @@ $(document).ready(() => {
   }
 
   menu.on("click", () => {
+    $("footer, .container, .title").toggleClass("blur-background");
     $(".navbar ul").slideToggle();
   });
 });
@@ -81,5 +82,5 @@ async function playlistCall() {
   let playlistsMixcloud = await $.getJSON(url);
   let imgArray = playlistsMixcloud.data;
   addPlaylists(imgArray);
-  console.log(imgArray);
+  // console.log(imgArray);
 }

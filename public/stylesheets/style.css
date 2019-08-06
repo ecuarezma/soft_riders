@@ -1,3 +1,9 @@
+html,
+body {
+  height: 100vh;
+  font-size: 16px;
+}
+
 body,
 .container,
 .container > *,
@@ -11,7 +17,7 @@ footer {
 body {
   margin: 0;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 500px;
   background-color: rgb(213, 212, 205);
   font-family: "Open Sans Condensed", sans-serif;
 }
@@ -68,20 +74,15 @@ nav .bars {
   height: calc(100vh - 160px);
 }
 
-.container h1 {
+.title {
   display: none;
-  position: relative;
-  top: 100px;
-  margin: 2rem auto;
-  font-weight: normal;
-  font-size: 4rem;
-  text-shadow: -3px 3px 0 rgb(213, 212, 205), -6px 6px 0 rgba(98, 55, 150, 0.65);
-  color: rgba(68, 65, 75, 0.9);
 }
 
 .mixcloud-grid,
 .spotify-grid {
   flex: 1 1 60%;
+  align-self: flex-end;
+  height: 75vh;
   padding: 1rem;
   justify-content: space-evenly;
   align-content: flex-start;
@@ -176,6 +177,7 @@ footer .icons a {
     flex: 0 1 25%;
   }
 }
+
 @media (max-width: 992px) {
   .navbar ul {
     justify-content: space-evenly;
@@ -199,70 +201,126 @@ footer .icons a {
   .mixplayer {
     width: 250px;
   }
+  footer {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .icons {
+    display: flex;
+    margin-left: auto;
+    width: 25vw;
+    justify-content: space-around;
+  }
+
+  footer .icons a {
+    padding: 0;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 2rem;
+  }
+
+  .fa-spotify {
+    color: #1db954;
+  }
+
+  .fa-mixcloud {
+    color: #52aad8;
+  }
 }
 
 @media (max-width: 576px) {
+  body > * {
+    transition: all 300ms ease;
+  }
+
+  .blur-background {
+    filter: blur(3px) brightness(60%);
+  }
+
   .navbar-header {
-    flex-basis: 0;
     position: relative;
     flex-direction: row;
     justify-content: flex-end;
     margin: 0;
+    z-index: 1000;
   }
 
   .navbar ul {
     display: none;
     flex-direction: column;
+    position: absolute;
   }
 
   .navbar ul li {
-    width: 40%;
-    font-size: 2.5rem;
+    width: 45vw;
+    font-size: 2rem;
     margin-left: auto;
-    padding: 1.25rem;
+    padding: 0.5rem;
     border-bottom: solid 2px rgb(4, 218, 214);
   }
 
-  #brand {
-    display: none;
+  .navbar a {
+    color: rgb(22, 21, 21);
+    text-shadow: -2px 2px 0 rgb(226, 215, 215);
   }
 
   nav .bars {
-    display: unset;
+    display: block;
+    margin: 0;
+    padding: 0;
     position: absolute;
-    top: 15px;
-    right: 0;
-    height: 50px;
-    width: 50px;
+    top: 1rem;
+    right: 1rem;
+    color: rgb(4, 218, 214);
+    filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
   }
 
   .fa-bars {
-    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
     cursor: pointer;
   }
 
   .container {
     flex-direction: column;
-    flex-basis: calc(100vh - 80px);
+    flex-basis: 100vh;
+    margin-top: 2rem;
+    margin-bottom: 0;
   }
 
-  .container .title h1 {
-    display: unset;
+  .title {
+    display: block;
+    position: absolute;
+    margin: 1rem;
+    top: 0;
+    left: 0;
+    font-size: 1.5rem;
+    color: rgba(68, 65, 75, 0.9);
+  }
+
+  .title h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
   }
 
   .mixcloud-grid,
   .spotify-grid {
-    justify-content: unset;
-    align-content: unset;
-    margin-top: 100px;
+    margin: 1rem;
+    margin: 0;
+    padding: 0;
     flex: 0 100%;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
     overflow: scroll;
   }
 
   .playlist-card {
-    font-size: 1.75rem;
-    margin: 3rem;
+    flex: unset;
+    width: 40vw;
+    font-size: 1rem;
+    margin: 0;
   }
 
   .mixcloud-content,
@@ -284,6 +342,27 @@ footer .icons a {
   }
 
   #play-image {
+    display: none;
+  }
+
+  footer {
+    flex-basis: 50px;
+  }
+
+  .icons {
+    display: flex;
+    margin: 0;
+    width: 60vw;
+    justify-content: space-around;
+  }
+
+  footer .icons a {
+    padding: 0;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 1.5rem;
+  }
+  #brand {
     display: none;
   }
 }

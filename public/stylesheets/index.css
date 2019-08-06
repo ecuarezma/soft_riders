@@ -1,6 +1,7 @@
 html,
 body {
-  height: 100%;
+  height: 100vh;
+  font-size: 16px;
 }
 
 body,
@@ -24,6 +25,7 @@ footer {
 
 body {
   margin: 0;
+  min-height: 500px;
   background: linear-gradient(
     180deg,
     rgba(220, 220, 220, 1) 0%,
@@ -33,6 +35,7 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 }
 
+/* -------NAV BAR-------- */
 .navbar-header {
   flex-basis: 80px;
 }
@@ -70,9 +73,6 @@ body {
 
 nav .bars {
   display: none;
-  margin: 10px;
-  font-size: 2rem;
-  color: rgb(4, 218, 214);
 }
 
 .container {
@@ -89,7 +89,7 @@ nav .bars {
   margin: 0;
   text-align: center;
 }
-
+/* -------BACKGROUND VIDEO-------- */
 video {
   object-fit: cover;
   position: absolute;
@@ -100,7 +100,7 @@ video {
   opacity: 0.9;
   z-index: -100;
 }
-
+/* -------RADIO PLAYER TO STREAM LIVE SHOWS-------- */
 #audio-player {
   transition: filter 400ms ease;
 }
@@ -109,7 +109,7 @@ video {
   margin: 1rem;
   outline: none;
 }
-
+/* -------MAILING LIST BUTTON TO BRING UP FORM-------- */
 #join-button {
   position: relative;
   bottom: 4rem;
@@ -129,7 +129,7 @@ video {
   border: 2px solid white;
   cursor: pointer;
 }
-
+/* -------MAILING LIST FORM-------- */
 .signup-container {
   display: none;
   position: absolute;
@@ -175,13 +175,13 @@ video {
   width: 100%;
   text-indent: 1rem;
   border-radius: 2rem;
-  border: 2px solid rgb(113, 109, 101);
+  border: 0.125rem solid rgb(113, 109, 101);
   transition: border 200ms ease;
 }
 
 #field input:focus,
 #field input:hover {
-  border: 2px solid rgb(4, 218, 214);
+  border: 0.125rem solid rgb(4, 218, 214);
 }
 
 #submit {
@@ -234,6 +234,30 @@ footer .icons a {
     display: none;
     margin-right: unset;
   }
+
+  footer {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .icons {
+    margin-right: 0;
+  }
+
+  footer .icons a {
+    padding: 1rem;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 2rem;
+  }
+
+  .fa-spotify {
+    color: #1db954;
+  }
+
+  .fa-mixcloud {
+    color: #52aad8;
+  }
 }
 
 @media (max-width: 576px) {
@@ -241,13 +265,15 @@ footer .icons a {
     transition: all 300ms ease;
   }
 
+  p {
+    font-size: 1rem;
+  }
+
   .blur-background {
     filter: blur(3px) brightness(60%);
-    transform: scale(1.025);
   }
 
   .navbar-header {
-    flex-basis: 0;
     position: relative;
     flex-direction: row;
     justify-content: flex-end;
@@ -262,12 +288,15 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 40%;
-    font-size: 2.5rem;
+    width: 45vw;
+    font-size: 2rem;
     margin-left: auto;
-    padding: 1.25rem;
+    padding: 0.5rem;
     border-bottom: solid 2px rgb(4, 218, 214);
-    text-shadow: -1px 1px 0 #0a0e27;
+  }
+
+  .navbar a {
+    color: rgb(226, 215, 215);
   }
 
   #brand,
@@ -276,16 +305,64 @@ footer .icons a {
   }
 
   nav .bars {
-    display: unset;
+    display: block;
+    margin: 0;
+    padding: 0;
     position: absolute;
-    top: 15px;
-    right: 0;
-    height: 50px;
-    width: 50px;
+    top: 1rem;
+    right: 1rem;
+    color: rgb(4, 218, 214);
   }
 
   .fa-bars {
-    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
     cursor: pointer;
+  }
+
+  #audio-player {
+    transition: filter 400ms ease;
+  }
+
+  #audio-player audio {
+    margin: 0 auto;
+    width: 40vw;
+    height: 2rem;
+    outline: none;
+  }
+
+  #join-button {
+    position: relative;
+    bottom: 1rem;
+    width: 150px;
+    border: 2px solid rgb(4, 218, 214);
+    border-radius: 1rem;
+    margin-top: auto;
+    transition: all 200ms ease;
+  }
+
+  #join-button p {
+    padding: 0.25rem;
+  }
+
+  .signup-container {
+    position: absolute;
+    bottom: 0;
+    width: 70vw;
+    height: 60vh;
+    z-index: 100;
+  }
+
+  .signup input {
+    all: unset;
+    font-size: 1.25rem;
+  }
+
+  footer .icons a {
+    padding: 1rem;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 1.5rem;
   }
 }

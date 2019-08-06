@@ -11,9 +11,9 @@ $(document).ready(() => {
   });
 
   $("nav .bars").on("click", () => {
-    $("video, footer, .container:not(.navbar-header)").toggleClass(
-      "blur-background"
-    );
+    $(
+      "video, #audio-player, footer, .container:not(.navbar-header)"
+    ).toggleClass("blur-background");
     $(".navbar ul").slideToggle();
   });
 });

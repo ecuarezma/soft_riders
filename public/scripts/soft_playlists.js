@@ -8,6 +8,7 @@ $(document).ready(() => {
   }
 
   menu.on("click", () => {
+    $("footer, .container, .title").toggleClass("blur-background");
     $(".navbar ul").slideToggle();
   });
 
@@ -86,7 +87,7 @@ function loadPlaylists(data) {
       $(".spotify-grid").append(newDiv);
     }
   });
-  console.log(data);
+  // console.log(data);
 }
 
 //CSS MEDIA QUERY VARIABLE

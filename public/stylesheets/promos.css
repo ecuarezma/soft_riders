@@ -1,6 +1,7 @@
 html,
 body {
-  height: 100%;
+  height: 100vh;
+  font-size: 16px;
 }
 
 body,
@@ -17,7 +18,7 @@ footer {
 body {
   margin: 0;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 500px;
   background-color: rgb(213, 212, 205);
   font-family: "Open Sans Condensed", sans-serif;
 }
@@ -63,10 +64,6 @@ body {
 
 nav .bars {
   display: none;
-  margin: 10px;
-  font-size: 2rem;
-  color: rgb(4, 218, 214);
-  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
 }
 
 .container {
@@ -78,7 +75,6 @@ nav .bars {
 
 .promos-player {
   margin: 1rem;
-  padding: 1rem;
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -96,32 +92,32 @@ nav .bars {
 }
 
 .promos-container {
+  margin: 1rem 0;
   padding-left: 4rem;
   flex-flow: row nowrap;
-  align-items: flex-end;
   overflow-y: auto;
 }
 
-div.promo {
+.promo-btn {
   display: flex;
   margin: 1rem;
-  flex: 1 0 200px;
-  height: 250px;
+  flex: 1 0 150px;
+  height: 200px;
   border: 2px solid black;
-  transform: skew(-30deg) translate(0, 0);
+  transform: skew(-25deg) translate(0, 0);
   transition: all 200ms ease;
   overflow: hidden;
 }
 
-div.promo:hover {
+.promo-btn:hover {
   cursor: pointer;
-  transform: skew(-30deg) translate(2px, -5px);
+  transform: skew(-25deg) translate(2px, -5px);
   filter: brightness(50%) drop-shadow(-0.3rem 0.3rem 0.25rem rgb(100, 100, 100));
 }
 
-div.promo video {
+#promo-img {
   width: 100%;
-  transform: skew(30deg) scale(2.5);
+  transform: skew(25deg) scale(1.8);
 }
 
 footer {
@@ -142,17 +138,8 @@ footer .icons a {
   margin-right: 1rem;
 }
 
-#promos-title {
-  margin-left: 1.25rem;
-}
-
-#promos-title p {
+.title {
   display: none;
-  margin: 0;
-  padding: 0;
-  font-size: 2.75rem;
-  text-shadow: -3px 3px 0 rgb(213, 212, 205), -6px 6px 0 rgba(98, 55, 150, 0.65);
-  color: rgba(68, 65, 75, 0.9);
 }
 
 @media (max-width: 992px) {
@@ -169,6 +156,33 @@ footer .icons a {
     display: none;
     margin-right: unset;
   }
+
+  footer {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .icons {
+    display: flex;
+    margin-left: auto;
+    width: 25vw;
+    justify-content: space-around;
+  }
+
+  footer .icons a {
+    padding: 0;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 2rem;
+  }
+
+  .fa-spotify {
+    color: #1db954;
+  }
+
+  .fa-mixcloud {
+    color: #52aad8;
+  }
 }
 
 @media (max-width: 576px) {
@@ -176,13 +190,18 @@ footer .icons a {
     transition: all 300ms ease;
   }
 
+  .promos-player {
+    padding: 0;
+  }
+  .promos-player p {
+    font-size: 1rem;
+  }
+
   .blur-background {
-    filter: blur(3px) brightness(50%);
-    transform: scale(1.025);
+    filter: blur(3px) brightness(60%);
   }
 
   .navbar-header {
-    flex-basis: 0;
     position: relative;
     flex-direction: row;
     justify-content: flex-end;
@@ -197,35 +216,86 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 40%;
-    font-size: 2.5rem;
+    width: 45vw;
+    font-size: 2rem;
     margin-left: auto;
-    padding: 1.25rem;
-    color: rgb(50, 50, 50);
-    text-shadow: 1px 1px 0 rgb(179, 254, 255);
-    border-bottom: solid 2px rgb(0, 251, 255);
+    padding: 0.5rem;
+    border-bottom: solid 2px rgb(4, 218, 214);
   }
 
+  .navbar a {
+    color: rgb(22, 21, 21);
+    text-shadow: -2px 2px 0 rgb(226, 215, 215);
+  }
+
+  nav .bars {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: rgb(4, 218, 214);
+    filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
+  }
+
+  .fa-bars {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .promos-container {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 20vh;
+    overflow-y: auto;
+  }
+
+  .promo-btn {
+    margin: 0 0.5rem;
+    flex: 1 0 70px;
+    height: 100px;
+  }
+
+  footer {
+    flex-basis: 50px;
+  }
+
+  .icons {
+    display: flex;
+    margin: 0;
+    width: 60vw;
+    justify-content: space-around;
+  }
+
+  footer .icons a {
+    padding: 0;
+    text-decoration: none;
+    color: rgba(203, 203, 203, 0.8);
+    font-size: 1.5rem;
+  }
   #brand,
   #promos {
     display: none;
   }
 
-  #promos-title p {
-    display: unset;
-  }
-
-  nav .bars {
-    display: unset;
+  .title {
+    display: block;
     position: absolute;
+    margin: 1rem;
     top: 0;
-    right: 0;
-    height: 50px;
-    width: 50px;
+    left: 0;
+    font-size: 1.5rem;
+    color: rgba(68, 65, 75, 0.9);
   }
 
-  .fa-bars {
-    font-size: 2.5rem;
-    cursor: pointer;
+  .title h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
   }
 }

@@ -8,6 +8,8 @@ This project is still in progress...
 
 Have all the content be easily accessible and maintained for users on both desktop and mobile sites. Simple and functional design. Ability for users to sign up to a mailing list.
 
+---
+
 ### APIs being consumed
 
   * Spotify API using authentication tokens and user permissions

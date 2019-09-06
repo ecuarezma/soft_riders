@@ -1,4 +1,14 @@
 <% include ./partials/header %>
+  <% if(error && error.length > 0) { %>
+    <div class='error'>
+      <%= error %>
+    </div>
+  <% } %>
+  <% if(success && success.length > 0) { %>
+    <div class='success'>
+      <%= success %>
+    </div>
+  <% } %>
     <video playsinline autoplay muted loop poster="/media/images/button1.jpg" id="bgvid">
       <source src="/media/videos/backgrounds/strawberry.m4v#t=5" type="video/mp4">
     </video>

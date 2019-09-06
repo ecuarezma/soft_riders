@@ -1,12 +1,18 @@
 require("dotenv").config();
 const express = require("express"),
   bodyParser = require("body-parser"),
+  session = require("express-session"),
+  cookieParser = require("cookie-parser"),
+  flash = require("connect-flash"),
   app = express(),
-  request = require("request"), // "Request" library
+  request = require("request"),
   db = require("./models");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser("I hear you"));
+app.use(session({ cookie: { maxAge: 6000 } }));
+app.use(flash());
 app.use(express.static(__dirname + "/views"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
@@ -14,16 +20,21 @@ app.set("view engine", "ejs");
 app
   .route("/")
   .get(function(req, res) {
-    res.render("index");
+    res.render("index", {
+      error: req.flash("error"),
+      success: req.flash("success")
+    });
   })
   .post(function(req, res) {
     db.Subscriber.create(req.body)
       .then(newSubscriber => {
+        req.flash("success", "Thank you for signing up!");
         res.redirect("/");
         console.log(newSubscriber);
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.message);
+        req.flash("error", err.message);
         res.redirect("/");
       });
   });

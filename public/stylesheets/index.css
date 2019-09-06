@@ -75,6 +75,25 @@ nav .bars {
   display: none;
 }
 
+/* -----ERROR HANDLING----- */
+.error {
+  padding: 0.25rem;
+  color: white;
+  font-size: 1.25rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(249, 49, 49, 0.461);
+}
+
+.success {
+  padding: 0.25rem;
+  color: white;
+  font-size: 1.25rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(49, 249, 236, 0.461);
+}
+
 .container {
   position: relative;
   flex-flow: column nowrap;

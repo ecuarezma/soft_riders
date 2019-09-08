@@ -33,7 +33,6 @@ app
         console.log(newSubscriber);
       })
       .catch(err => {
-        console.log(err.message);
         req.flash("error", err.message);
         res.redirect("/");
       });

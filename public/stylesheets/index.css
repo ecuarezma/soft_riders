@@ -144,8 +144,7 @@ video {
 }
 
 #join-button:hover {
-  color: white;
-  border: 2px solid white;
+  border: 2px solid rgb(4, 218, 214);
   cursor: pointer;
 }
 /* -------MAILING LIST FORM-------- */
@@ -222,8 +221,9 @@ video {
   transform: scale(1.05);
 }
 
+/* -------FOOTER STYLES------- */
 footer {
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-basis: 80px;
 }
@@ -232,12 +232,26 @@ footer {
   margin-right: 1rem;
 }
 
-footer .icons a {
+.contact {
+  margin-left: 1rem;
+}
+.contact a {
   padding: 0 1rem 0.5rem 0;
   text-decoration: none;
   color: rgba(203, 203, 203, 0.8);
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
+
+.icons a {
+  padding: 0 1rem 0.5rem 0;
+  text-decoration: none;
+  color: rgba(203, 203, 203, 0.8);
+  font-size: 2.25rem;
+}
+
+/* *****************************************
+  -----------MEDIA QUERIES-------------
+***************************************** */
 
 @media (max-width: 992px) {
   .navbar ul {
@@ -307,14 +321,13 @@ footer .icons a {
   }
 
   .navbar ul li {
-    width: 45vw;
     font-size: 2rem;
-    margin-left: auto;
     padding: 0.5rem;
     border-bottom: solid 2px rgb(4, 218, 214);
   }
 
   .navbar a {
+    margin-left: 0.5rem;
     color: rgb(226, 215, 215);
   }
 
@@ -334,7 +347,7 @@ footer .icons a {
   }
 
   .fa-bars {
-    margin: 0;
+    vertical-align: top;
     padding: 0;
     font-size: 2rem;
     cursor: pointer;
@@ -378,10 +391,31 @@ footer .icons a {
     font-size: 1.25rem;
   }
 
+  footer {
+    flex-basis: 50px;
+  }
+
+  .icons {
+    display: flex;
+    margin: 0 auto;
+    width: 60vw;
+    justify-content: flex-end;
+  }
+
   footer .icons a {
-    padding: 1rem;
+    padding: 0;
+    margin: 0 0.75rem;
     text-decoration: none;
     color: rgba(203, 203, 203, 0.8);
     font-size: 1.5rem;
+  }
+
+  .contact {
+    margin-left: 1rem;
+  }
+  .contact a {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
   }
 }

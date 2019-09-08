@@ -120,8 +120,9 @@ nav .bars {
   transform: skew(25deg) scale(1.8);
 }
 
+/* -------FOOTER STYLES------- */
 footer {
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-basis: 80px;
   background-color: rgb(68, 65, 75);
@@ -136,6 +137,23 @@ footer .icons a {
 
 .icons {
   margin-right: 1rem;
+}
+
+.contact {
+  margin-left: 1rem;
+}
+.contact a {
+  padding: 0 1rem 0.5rem 0;
+  text-decoration: none;
+  color: rgba(203, 203, 203, 0.8);
+  font-size: 1.5rem;
+}
+
+.icons a {
+  padding: 0 1rem 0.5rem 0;
+  text-decoration: none;
+  color: rgba(203, 203, 203, 0.8);
+  font-size: 2.25rem;
 }
 
 .title {
@@ -213,19 +231,22 @@ footer .icons a {
     display: none;
     flex-direction: column;
     position: absolute;
+    background: linear-gradient(
+      90deg,
+      rgba(68, 65, 75, 1) 0%,
+      rgba(255, 255, 255, 0) 80%
+    );
   }
 
   .navbar ul li {
-    width: 45vw;
     font-size: 2rem;
-    margin-left: auto;
     padding: 0.5rem;
     border-bottom: solid 2px rgb(4, 218, 214);
   }
 
   .navbar a {
-    color: rgb(22, 21, 21);
-    text-shadow: -2px 2px 0 rgb(226, 215, 215);
+    margin-left: 0.5rem;
+    color: rgb(226, 215, 215);
   }
 
   nav .bars {
@@ -240,7 +261,7 @@ footer .icons a {
   }
 
   .fa-bars {
-    margin: 0;
+    vertical-align: top;
     padding: 0;
     font-size: 2rem;
     cursor: pointer;
@@ -262,22 +283,33 @@ footer .icons a {
   }
 
   footer {
-    flex-basis: 50px;
+    flex-basis: 3.125rem;
   }
 
   .icons {
     display: flex;
-    margin: 0;
+    margin: 0 auto;
     width: 60vw;
-    justify-content: space-around;
+    justify-content: flex-end;
   }
 
   footer .icons a {
     padding: 0;
+    margin: 0 0.75rem;
     text-decoration: none;
     color: rgba(203, 203, 203, 0.8);
     font-size: 1.5rem;
   }
+
+  .contact {
+    margin-left: 1rem;
+  }
+  .contact a {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+
   #brand,
   #promos {
     display: none;

@@ -9,6 +9,15 @@
     const style = '<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />';
     $('head').append(style);
     $('title').append(title);
+    $(document).ready(() => {
+    //MOBILE MENU TOGGLE
+      $("nav .bars").on("click", () => {
+        $("footer, .promos-player, .promos-container, .title").toggleClass(
+          "blur-background"
+        );
+        $(".navbar ul").slideToggle();
+      });
+    });
   </script>
 </body>
 </html>

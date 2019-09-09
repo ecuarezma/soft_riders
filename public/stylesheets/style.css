@@ -25,6 +25,17 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+/* -----LOADING ELEMENT----- */
+.load {
+  display: flex;
+  height: 100%;
+}
+
+.load h4 {
+  align-self: center;
+}
+
 /* -----NAV BAR STYLES----- */
 .navbar-header {
   flex-basis: 80px;
@@ -103,7 +114,7 @@ nav .bars {
 
 .mixcloud-content p,
 .spotify-content p {
-  font-size: 3.5rem;
+  font-size: 2rem;
   color: rgba(155, 36, 23, 0.8);
   filter: drop-shadow(0 0.125rem 0.3rem #aa9da5);
 }

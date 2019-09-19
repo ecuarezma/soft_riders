@@ -62,7 +62,6 @@ const mixcloud_content = $(".mixcloud-content");
 const url = "https://api.mixcloud.com/soft_riders/cloudcasts/";
 
 function addPlaylists(playlists) {
-  mixcloud_grid.children().remove();
   playlists.map((playlist, index) => {
     let newDiv = $(
       `<div class="playlist-card">

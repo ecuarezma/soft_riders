@@ -26,16 +26,6 @@ body {
   display: none;
 }
 
-/* -----LOADING ELEMENT----- */
-.load {
-  display: flex;
-  height: 100%;
-}
-
-.load h4 {
-  align-self: center;
-}
-
 /* -----NAV BAR STYLES----- */
 .navbar-header {
   flex-basis: 80px;
@@ -171,13 +161,6 @@ footer {
   align-items: center;
   flex-basis: 80px;
   background-color: rgb(68, 65, 75);
-}
-
-footer .icons a {
-  padding: 0 1rem 0.5rem 0;
-  text-decoration: none;
-  color: rgba(203, 203, 203, 0.8);
-  font-size: 2.5rem;
 }
 
 .icons {

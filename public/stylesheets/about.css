@@ -1,0 +1,56 @@
+@import "style.css";
+
+.about-container {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: 60%;
+  height: 70%;
+  justify-content: space-around;
+  background-color: rgb(182, 182, 176);
+  color: rgb(50, 50, 50);
+}
+
+.miki-img {
+  margin: 1rem;
+  flex-basis: 40%;
+}
+
+.miki-img img {
+  width: 100%;
+  border: solid 1px black;
+  border-radius: 0.5rem;
+}
+
+.text {
+  margin: 1rem;
+  flex-basis: 60%;
+  font-size: 1.5rem;
+}
+
+.text span {
+  color: rgb(155, 36, 23);
+}
+
+@media (max-width: 992px) {
+  .about-container {
+    flex-flow: column nowrap;
+    margin: 1rem;
+    height: unset;
+  }
+
+  .miki-img {
+    margin: 1rem auto;
+    width: 40%;
+  }
+
+  .text p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-container {
+    font-size: 1rem;
+  }
+}

@@ -74,15 +74,15 @@ nav .bars {
 }
 
 .promos-player {
+  height: 100%;
   margin: 1rem;
   flex: 1;
   justify-content: center;
   align-items: center;
 }
 
-.promos-player video {
+.promos-player iframe {
   height: 100%;
-  width: 100%;
 }
 
 .promos-player p {
@@ -103,6 +103,7 @@ nav .bars {
   margin: 1rem;
   flex: 1 0 150px;
   height: 200px;
+  justify-content: center;
   border: 2px solid black;
   transform: skew(-25deg) translate(0, 0);
   transition: all 200ms ease;
@@ -116,8 +117,9 @@ nav .bars {
 }
 
 #promo-img {
-  width: 100%;
-  transform: skew(25deg) scale(1.8);
+  padding-left: 2rem;
+  align-self: center;
+  transform: skew(25deg);
 }
 
 /* -------FOOTER STYLES------- */

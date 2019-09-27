@@ -35,8 +35,6 @@ function addPromosButtons(data) {
         id="promo-img"
         src="${promo.pictures.sizes[4].link}"
         key='${promo.embed.html}'/>
-        width="${promo.pictures.sizes[3].width}"
-        height="${promo.pictures.sizes[3].height}"
       </div>`
     );
     $(".promos-container").append(newDiv);

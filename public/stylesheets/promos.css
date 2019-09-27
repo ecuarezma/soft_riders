@@ -74,9 +74,9 @@ nav .bars {
 }
 
 .promos-player {
-  height: 100%;
+  /* height: 100%; */
   margin: 1rem;
-  flex: 1;
+  flex: 1 1 50vh;
   justify-content: center;
   align-items: center;
 }
@@ -94,6 +94,7 @@ nav .bars {
 .promos-container {
   margin: 1rem 0;
   padding-left: 4rem;
+  flex: 1 1 25%;
   flex-flow: row nowrap;
   overflow-y: auto;
 }

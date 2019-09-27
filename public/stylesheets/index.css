@@ -291,6 +291,10 @@ footer {
   .fa-mixcloud {
     color: #52aad8;
   }
+
+  .fa-vimeo {
+    color: #1ab7ea;
+  }
 }
 
 @media (max-width: 576px) {

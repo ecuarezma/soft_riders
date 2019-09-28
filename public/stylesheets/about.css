@@ -56,6 +56,9 @@
 }
 
 @media (max-width: 576px) {
+  .miki-img {
+    width: 30%;
+  }
   .about-container {
     margin: 0;
     background-color: unset;
@@ -67,6 +70,6 @@
 
   .text p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }

@@ -66,8 +66,8 @@ nav .bars {
   display: none;
   margin: 10px;
   font-size: 2rem;
-  color: rgb(4, 218, 214);
-  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
+  /* color: rgb(4, 218, 214);
+  filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3)); */
 }
 
 /* -----CONTENT LAYOUT----- */
@@ -291,8 +291,8 @@ footer {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: rgb(4, 218, 214);
-    filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
+    /* color: rgb(4, 218, 214);
+    filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3)); */
   }
 
   .fa-bars {

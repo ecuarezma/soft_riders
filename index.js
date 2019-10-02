@@ -12,7 +12,14 @@ const express = require("express"),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser("I hear you"));
-app.use(session({ cookie: { maxAge: 6000 } }));
+app.use(
+  session({
+    cookie: { maxAge: 6000 },
+    saveUninitialized: true,
+    resave: true,
+    secret: "I hear you"
+  })
+);
 app.use(flash());
 app.use(express.static(__dirname + "/views"));
 app.use(express.static(__dirname + "/public"));

@@ -1,16 +1,17 @@
+import "newrelic";
 require("dotenv").config();
-const express = require("express"),
-  bodyParser = require("body-parser"),
-  session = require("express-session"),
-  cookieParser = require("cookie-parser"),
-  flash = require("connect-flash"),
-  // mailgun = require("mailgun-js"),
-  app = express(),
-  request = require("request"),
-  db = require("./models");
+import express, { static } from "express";
+import { json as _json, urlencoded } from "body-parser";
+import session from "express-session";
+import cookieParser from "cookie-parser";
+import flash from "connect-flash";
+const // mailgun = require("mailgun-js"),
+  app = express();
+import { post } from "request";
+import { Subscriber } from "./models";
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(_json());
+app.use(urlencoded({ extended: true }));
 app.use(cookieParser("I hear you"));
 app.use(
   session({
@@ -21,8 +22,8 @@ app.use(
   })
 );
 app.use(flash());
-app.use(express.static(__dirname + "/views"));
-app.use(express.static(__dirname + "/public"));
+app.use(static(__dirname + "/views"));
+app.use(static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
 // MAILGUN PRESETS (SANDBOX)
@@ -48,7 +49,7 @@ app
     });
   })
   .post(function(req, res) {
-    db.Subscriber.create(req.body)
+    Subscriber.create(req.body)
       .then(newSubscriber => {
         req.flash("success", "Thank you for signing up!");
         res.redirect("/");
@@ -65,7 +66,7 @@ app.get("/archives", function(req, res) {
 });
 
 app.get("/playlists", function(req, res) {
-  request.post(authOptions_spotify, function(error, response, body) {
+  post(authOptions_spotify, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       // use the access token to access the Spotify Web API
       let token = body.access_token;
@@ -77,7 +78,7 @@ app.get("/playlists", function(req, res) {
 });
 
 app.get("/promos", (req, res) => {
-  request.post(authOptions_vimeo, function(error, response, body) {
+  post(authOptions_vimeo, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       // use the access token to access the Vimeo Web API
       let token = body.access_token;

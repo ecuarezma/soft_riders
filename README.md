@@ -14,6 +14,7 @@ Have all the content be easily accessible and maintained for users on both deskt
 
   * Spotify API using authentication tokens and user permissions
   * Mixcloud API directly from the api.mixcloud site
+  * Vimeo API using public token requests
 
 ### Built with
 

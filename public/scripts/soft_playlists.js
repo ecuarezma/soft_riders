@@ -53,7 +53,7 @@ $(document).ready(() => {
     }
   });
   //LOAD PLAYLISTS
-  getPlaylists();
+  // getPlaylists();
 });
 //API VARIABLES
 let token = x;

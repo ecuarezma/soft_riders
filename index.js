@@ -1,6 +1,8 @@
 require("newrelic");
 require("dotenv").config();
 const express = require("express"),
+  compression = require("compression"),
+  helmet = require("helmet"),
   bodyParser = require("body-parser"),
   session = require("express-session"),
   cookieParser = require("cookie-parser"),
@@ -10,6 +12,8 @@ const express = require("express"),
   request = require("request"),
   db = require("./models");
 
+app.use(helmet());
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser("I hear you"));

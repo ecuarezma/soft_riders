@@ -1,18 +1,17 @@
-var mongoose = require('mongoose');
-mongoose.set('debug', true);
-mongoose.connect(`mongodb+srv://ecuarezma:${process.env.DB_PWD}@jovial-cluster-bd0wc.mongodb.net/Soft_Riders?retryWrites=true&w=majority`, 
-{useNewUrlParser: true,
- useCreateIndex: true   
-})
-.then(() => {
-    console.log('connected to db!')
-}).catch(err => {
-    console.log('ERROR: ', err.message);
-})
-
+var mongoose = require("mongoose");
+mongoose.set("debug", true);
+mongoose
+  .connect(
+    `mongodb+srv://ecuarezma:${process.env.DB_PWD}@jovial-cluster-bd0wc.mongodb.net/Soft_Riders?retryWrites=true&w=majority`,
+    { useNewUrlParser: true, useCreateIndex: true }
+  )
+  .then(() => {
+    console.log("connected to db!");
+  })
+  .catch(err => {
+    console.log("ERROR: ", err.message);
+  });
 
 mongoose.Promise = Promise;
 
-module.exports.Subscriber = require('./subscriber')
-
-
+module.exports.Subscriber = require("./subscriber");

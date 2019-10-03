@@ -1,8 +1,5 @@
 /* global body $ */
 $(document).ready(() => {
-  //LOAD PLAYLISTS
-  getPlaylists();
-
   //TOGGLE MENU ON MOBILE VERSION
   const menu = $("nav .bars");
 
@@ -55,6 +52,8 @@ $(document).ready(() => {
       );
     }
   });
+  //LOAD PLAYLISTS
+  getPlaylists();
 });
 //API VARIABLES
 let token = x;

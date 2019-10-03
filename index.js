@@ -42,13 +42,13 @@ app.set("view engine", "ejs");
 
 app
   .route("/")
-  .get(function(req, res) {
+  .get((req, res) => {
     res.render("index", {
       error: req.flash("error"),
       success: req.flash("success")
     });
   })
-  .post(function(req, res) {
+  .post((req, res) => {
     db.Subscriber.create(req.body)
       .then(newSubscriber => {
         req.flash("success", "Thank you for signing up!");
@@ -61,11 +61,11 @@ app
       });
   });
 
-app.get("/archives", function(req, res) {
+app.get("/archives", (req, res) => {
   res.render("archives");
 });
 
-app.get("/playlists", function(req, res) {
+app.get("/playlists", (req, res) => {
   request.post(authOptions_spotify, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       // use the access token to access the Spotify Web API

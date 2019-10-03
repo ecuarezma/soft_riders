@@ -82,15 +82,15 @@ app.get("/archives", (req, res) => {
 // });
 
 app.get("/playlists", (req, res) => {
-  request.post(authOptions_spotify, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      // use the access token to access the Vimeo Web API
-      let token = body.access_token;
+  // request.post(authOptions_spotify, function(error, response, body) {
+  //   if (!error && response.statusCode === 200) {
+  //     // use the access token to access the Vimeo Web API
+  //     let token = body.access_token;
 
-      res.render("soft_playlists", { token: token });
-    }
-  });
+  res.render("soft_playlists", { token: token });
 });
+//   });
+// });
 
 app.get("/promos", (req, res) => {
   request.post(authOptions_vimeo, function(error, response, body) {

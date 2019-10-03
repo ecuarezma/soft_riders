@@ -1,11 +1,5 @@
 /* global body $ */
 $(document).ready(() => {
-  //CALLING SPOTIFY API older version
-  fetch(url, {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-    .then(res => res.json().then(data => data.items))
-    .then(loadPlaylists);
   //TOGGLE MENU ON MOBILE VERSION
   const menu = $("nav .bars");
 
@@ -17,6 +11,9 @@ $(document).ready(() => {
     $("footer, .container, .title").toggleClass("blur-background");
     $(".navbar ul").slideToggle();
   });
+
+  //LOAD PLAYLISTS
+  getPlaylists();
 
   //EVENT LISTENER FOR PLAYLISTS
   spotify_grid.on("click", ".playlist-card", function() {
@@ -58,8 +55,6 @@ $(document).ready(() => {
       );
     }
   });
-  //LOAD PLAYLISTS
-  // getPlaylists();
 });
 //API VARIABLES
 let token = x;
@@ -92,12 +87,12 @@ function loadPlaylists(data) {
 }
 
 //CALLING SPOTIFY API current
-// async function getPlaylists() {
-//   let playlists = await fetch(url, {
-//     headers: { Authorization: `Bearer ${token}` }
-//   }).then(res => res.json().then(data => data.items));
-//   loadPlaylists(playlists);
-// }
+async function getPlaylists() {
+  let playlists = await fetch(url, {
+    headers: { Authorization: `Bearer ${token}` }
+  }).then(res => res.json().then(data => data.items));
+  loadPlaylists(playlists);
+}
 
 //CSS MEDIA QUERY VARIABLE
 let mq = window.matchMedia("(max-width: 576px)");

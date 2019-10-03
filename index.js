@@ -65,14 +65,25 @@ app.get("/archives", (req, res) => {
   res.render("archives");
 });
 
+// app.get("/playlists", (req, res) => {
+//   request.post(authOptions_spotify, function(error, response, body) {
+//     if (!error && response.statusCode === 200) {
+//       // use the access token to access the Spotify Web API
+//       let token = body.access_token;
+
+//       res.render("soft_playlists", { token: token });
+//       // console.log(body.items[19].owner)
+//     }
+//   });
+// });
+
 app.get("/playlists", (req, res) => {
   request.post(authOptions_spotify, function(error, response, body) {
     if (!error && response.statusCode === 200) {
-      // use the access token to access the Spotify Web API
+      // use the access token to access the Vimeo Web API
       let token = body.access_token;
 
       res.render("soft_playlists", { token: token });
-      // console.log(body.items[19].owner)
     }
   });
 });

@@ -10,7 +10,8 @@ const express = require("express"),
   // mailgun = require("mailgun-js"),
   app = express(),
   request = require("request"),
-  db = require("./models");
+  db = require("./models"),
+  middleware = require("./middlewares.js");
 
 app.use(helmet());
 app.use(compression());
@@ -69,66 +70,19 @@ app.get("/archives", (req, res) => {
   res.render("archives");
 });
 
-app.get("/playlists", (req, res) => {
-  request.post(authOptions_spotify, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      // use the access token to access the Vimeo Web API
-      let token = body.access_token;
-
-      res.render("soft_playlists", { token: token });
-    }
-  });
+app.get("/playlists", middleware.spotifyToken, (req, res) => {
+  let token = res.locals.token;
+  res.render("soft_playlists", { token: token });
 });
 
-app.get("/promos", (req, res) => {
-  request.post(authOptions_vimeo, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
-      // use the access token to access the Vimeo Web API
-      let token = body.access_token;
-
-      res.render("promos", { token: token });
-    }
-  });
+app.get("/promos", middleware.vimeoToken, (req, res) => {
+  let token = res.locals.token;
+  res.render("promos", { token: token });
 });
 
 app.get("/about", (req, res) => {
   res.render("about");
 });
-
-const client_id = process.env.CLIENT_ID; // Your client id
-const client_secret = process.env.CLIENT_SECRET; // Your secret
-
-// your application requests authorization
-let authOptions_spotify = {
-  url: "https://accounts.spotify.com/api/token",
-  headers: {
-    Authorization:
-      "Basic " + Buffer.from(client_id + ":" + client_secret).toString("base64")
-  },
-  form: {
-    grant_type: "client_credentials"
-  },
-  json: true
-};
-
-let authOptions_vimeo = {
-  url: "https://api.vimeo.com/oauth/authorize/client",
-  headers: {
-    Authorization:
-      "Basic " +
-      Buffer.from(
-        "6811e7c8428189dfc7fb53683c26d5ef571f1097" +
-          ":" +
-          "HurpYqy0PRG6wDT5uZQPDqWN++VDaYnn0D5niOwfdyHHAaXbM9kfI0BljQyk5COH+J/vg8VlLdoqN69x/077gQXGuTc3h4GYXQA8gl8aMHdx0q9+7s/UdcORFSPbm2sL"
-      ).toString("base64"),
-    Accept: "application/vnd.vimeo.*+json;version=3.4"
-  },
-  form: {
-    grant_type: "client_credentials",
-    scope: "public"
-  },
-  json: true
-};
 
 let port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, () => {

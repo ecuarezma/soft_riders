@@ -1,13 +1,16 @@
 request = require("request");
-// your application requests authorization
-const client_id = process.env.CLIENT_ID; // Your client id
-const client_secret = process.env.CLIENT_SECRET; // Your secret
+
+const spotify_id = process.env.SPOTIFY_ID,
+  spotify_secret = process.env.SPOTIFY_SECRET,
+  vimeo_id = process.env.VIMEO_ID,
+  vimeo_secret = process.env.VIMEO_SECRET;
 
 let authOptions_spotify = {
   url: "https://accounts.spotify.com/api/token",
   headers: {
     Authorization:
-      "Basic " + Buffer.from(client_id + ":" + client_secret).toString("base64")
+      "Basic " +
+      Buffer.from(spotify_id + ":" + spotify_secret).toString("base64")
   },
   form: {
     grant_type: "client_credentials"
@@ -18,12 +21,7 @@ let authOptions_vimeo = {
   url: "https://api.vimeo.com/oauth/authorize/client",
   headers: {
     Authorization:
-      "Basic " +
-      Buffer.from(
-        "6811e7c8428189dfc7fb53683c26d5ef571f1097" +
-          ":" +
-          "HurpYqy0PRG6wDT5uZQPDqWN++VDaYnn0D5niOwfdyHHAaXbM9kfI0BljQyk5COH+J/vg8VlLdoqN69x/077gQXGuTc3h4GYXQA8gl8aMHdx0q9+7s/UdcORFSPbm2sL"
-      ).toString("base64"),
+      "Basic " + Buffer.from(vimeo_id + ":" + vimeo_secret).toString("base64"),
     Accept: "application/vnd.vimeo.*+json;version=3.4"
   },
   form: {

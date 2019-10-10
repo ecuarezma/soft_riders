@@ -13,7 +13,7 @@ $(document).ready(() => {
   });
 
   //LOAD PLAYLISTS
-  // getPlaylists();
+  getPlaylists();
 
   //EVENT LISTENER FOR PLAYLISTS
   spotify_grid.on("click", ".playlist-card", function() {
@@ -55,6 +55,7 @@ $(document).ready(() => {
       );
     }
   });
+  
 });
 //API VARIABLES
 let token = x;

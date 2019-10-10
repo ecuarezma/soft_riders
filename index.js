@@ -9,9 +9,9 @@ const express = require("express"),
   flash = require("connect-flash"),
   // mailgun = require("mailgun-js"),
   app = express(),
-  request = require("request"),
   db = require("./models"),
-  middleware = require("./middlewares.js");
+  middleware = require("./middleware"),
+  routes = require("./routes");
 
 app.use(helmet());
 app.use(compression());
@@ -21,8 +21,8 @@ app.use(cookieParser("I hear you"));
 app.use(
   session({
     cookie: { maxAge: 6000 },
-    saveUninitialized: true,
-    resave: true,
+    saveUninitialized: false,
+    resave: false,
     secret: "I hear you"
   })
 );
@@ -30,6 +30,7 @@ app.use(flash());
 app.use(express.static(__dirname + "/views"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
+app.use(routes);
 
 // MAILGUN PRESETS (SANDBOX)
 // const DOMAIN = 'YOUR_DOMAIN_NAME';
@@ -44,45 +45,6 @@ app.set("view engine", "ejs");
 // mg.messages().send(data, function (error, body) {
 // 	console.log(body);
 // });
-
-app
-  .route("/")
-  .get((req, res) => {
-    res.render("index", {
-      error: req.flash("error"),
-      success: req.flash("success")
-    });
-  })
-  .post((req, res) => {
-    db.Subscriber.create(req.body)
-      .then(newSubscriber => {
-        req.flash("success", "Thank you for signing up!");
-        res.redirect("/");
-        console.log(newSubscriber);
-      })
-      .catch(err => {
-        req.flash("error", err.message);
-        res.redirect("/");
-      });
-  });
-
-app.get("/archives", (req, res) => {
-  res.render("archives");
-});
-
-app.get("/playlists", middleware.spotifyToken, (req, res) => {
-  let token = res.locals.token;
-  res.render("soft_playlists", { token: token });
-});
-
-app.get("/promos", middleware.vimeoToken, (req, res) => {
-  let token = res.locals.token;
-  res.render("promos", { token: token });
-});
-
-app.get("/about", (req, res) => {
-  res.render("about");
-});
 
 let port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, () => {

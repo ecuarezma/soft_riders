@@ -9,8 +9,6 @@ const express = require("express"),
   flash = require("connect-flash"),
   // mailgun = require("mailgun-js"),
   app = express(),
-  db = require("./models"),
-  middleware = require("./middleware"),
   routes = require("./routes");
 
 app.use(helmet());

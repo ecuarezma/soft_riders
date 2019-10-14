@@ -244,7 +244,6 @@ footer .icons a {
   .navbar ul li {
     font-size: 2rem;
     padding: 0.5rem;
-    border-bottom: solid 2px rgb(4, 218, 214);
   }
 
   .navbar a {
@@ -259,8 +258,7 @@ footer .icons a {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: rgb(4, 218, 214);
-    filter: drop-shadow(-1px 1px 0 rgba(0, 0, 0, 0.3));
+    color: rgba(50, 50, 50, 0.8);
   }
 
   .fa-bars {

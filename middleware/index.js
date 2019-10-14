@@ -1,4 +1,8 @@
-request = require("request");
+let request = require("request"),
+  moment = require("moment");
+require("moment-recur");
+
+moment().format();
 
 const spotify_id = process.env.SPOTIFY_ID,
   spotify_secret = process.env.SPOTIFY_SECRET,
@@ -50,4 +54,23 @@ let spotifyToken = (req, res, next) => {
     }
   });
 };
-module.exports = { vimeoToken, spotifyToken };
+
+let calendarEvent = (req, res, next) => {
+  let radio = false;
+  let curDate = moment();
+  let showTime = moment
+    .recur()
+    .every("Wednesday")
+    .daysOfWeek()
+    .every([1])
+    .weeksOfMonthByDay();
+  if (showTime.matches(curDate)) {
+    radio = true;
+    res.locals.radio = radio;
+    next();
+  } else {
+    res.locals.radio = radio;
+    next();
+  }
+};
+module.exports = { vimeoToken, spotifyToken, calendarEvent };

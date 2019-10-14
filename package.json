@@ -25,6 +25,8 @@
     "express-session": "^1.16.2",
     "helmet": "^3.21.1",
     "mailgun-js": "^0.22.0",
+    "moment": "^2.24.0",
+    "moment-recur": "^1.0.7",
     "mongoose": "^5.5.9",
     "mongoose-unique-validator": "^2.0.3",
     "newrelic": "^5.13.0",

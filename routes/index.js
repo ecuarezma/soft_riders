@@ -22,17 +22,18 @@ router
     });
   })
   .post((req, res) => {
-    let email = req.body.email;
+    let { firstName, lastName, email, location } = req.body;
     db.Subscriber.create(req.body)
       .then(newSubscriber => {
         req.flash("success", "Thank you for signing up!");
         res.redirect("/");
         //MAILGUN DATA
         const data = {
-          from: "Soft Riders <me@samples.mailgun.org>",
+          from: "Soft Riders <noreply@soft-riders.com>",
           to: `ecuarezma@gmail.com`,
-          subject: "Hello",
-          text: `Testing some Mailgun awesomness! you signed up with ${email}`
+          subject: "You have a new subscriber!",
+          text: `${firstName} ${lastName} from ${location} has joined Soft Riders' mailing list!
+          Their email is ${email}.`
         };
         //SEND EMAIL
         mg.messages().send(data, function(error, body) {

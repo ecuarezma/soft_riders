@@ -1,21 +1,46 @@
 const express = require("express"),
   router = express.Router({ mergeParams: true }),
+  mailgun = require("mailgun-js"),
+  moment = require("moment"),
   db = require("../models"),
   middleware = require("../middleware");
+require("moment-recur");
+
+moment().format();
+
+//MAILGUN PRESETS (SANDBOX)
+const api_key = process.env.MAILGUN_API_KEY;
+const DOMAIN = "sandbox53a8f406c0ac4230b635e86957be8164.mailgun.org";
+const mg = mailgun({ apiKey: api_key, domain: DOMAIN });
 
 router
   .route("/")
-  .get((req, res) => {
+  .get(middleware.calendarEvent, (req, res) => {
     res.render("index", {
       error: req.flash("error"),
       success: req.flash("success")
     });
   })
   .post((req, res) => {
+    let email = req.body.email;
     db.Subscriber.create(req.body)
       .then(newSubscriber => {
         req.flash("success", "Thank you for signing up!");
         res.redirect("/");
+        //MAILGUN DATA
+        const data = {
+          from: "Soft Riders <me@samples.mailgun.org>",
+          to: `ecuarezma@gmail.com`,
+          subject: "Hello",
+          text: `Testing some Mailgun awesomness! you signed up with ${email}`
+        };
+        //SEND EMAIL
+        mg.messages().send(data, function(error, body) {
+          if (error) {
+            console.log(error);
+          }
+          console.log(body);
+        });
         console.log(newSubscriber);
       })
       .catch(err => {
@@ -29,13 +54,11 @@ router.get("/archives", (req, res) => {
 });
 
 router.get("/playlists", middleware.spotifyToken, (req, res) => {
-  let token = res.locals.token;
-  res.render("soft_playlists", { token: token });
+  res.render("soft_playlists");
 });
 
 router.get("/promos", middleware.vimeoToken, (req, res) => {
-  let token = res.locals.token;
-  res.render("promos", { token: token });
+  res.render("promos");
 });
 
 router.get("/about", (req, res) => {

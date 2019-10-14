@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway+Dots&display=swap");
+
 html,
 body {
   height: 100vh;
@@ -68,6 +70,7 @@ body {
 }
 
 #brand {
+  display: none;
   margin-right: auto;
 }
 
@@ -93,6 +96,7 @@ nav .bars {
   vertical-align: middle;
   background-color: rgba(49, 249, 236, 0.461);
 }
+/* ------------------------------- */
 
 .container {
   position: relative;
@@ -107,6 +111,14 @@ nav .bars {
 .container p {
   margin: 0;
   text-align: center;
+}
+
+#logo a {
+  text-decoration: none;
+  color: rgba(203, 203, 203, 0.8);
+  font-size: 4rem;
+  font-family: "Raleway Dots", cursive;
+  cursor: pointer;
 }
 /* -------BACKGROUND VIDEO-------- */
 video {
@@ -127,6 +139,11 @@ video {
 #audio-player audio {
   margin: 1rem;
   outline: none;
+}
+
+#audio-player a {
+  text-decoration: none;
+  color: rgb(228, 208, 55);
 }
 /* -------MAILING LIST BUTTON TO BRING UP FORM-------- */
 #join-button {
@@ -166,7 +183,7 @@ video {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: rgb(4, 218, 214);
+  color: rgb(226, 215, 215);
   cursor: pointer;
 }
 
@@ -327,12 +344,16 @@ footer {
   .navbar ul li {
     font-size: 2rem;
     padding: 0.5rem;
-    border-bottom: solid 2px rgb(4, 218, 214);
   }
 
   .navbar a {
     margin-left: 0.5rem;
     color: rgb(226, 215, 215);
+  }
+
+  #logo {
+    margin: 0.5rem;
+    padding: 0;
   }
 
   #brand,
@@ -347,7 +368,7 @@ footer {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: rgb(4, 218, 214);
+    color: rgb(226, 215, 215);
   }
 
   .fa-bars {

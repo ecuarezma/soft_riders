@@ -18,9 +18,10 @@ Have all the content be easily accessible and maintained for users on both deskt
 
 ### Built with
 
-  * Node.js using the Express framework.
-  * MongoDB for storing mailing list.
-  * Heroku for deployment.
+  * Node.js using the Express framework
+  * EJS (Embedded Javascript)
+  * MongoDB
+  * Heroku
 
 ### Link
 

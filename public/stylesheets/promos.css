@@ -142,9 +142,9 @@ nav .bars {
   -ms-flex-pack: center;
   justify-content: center;
   border: 2px solid black;
-  -webkit-transform: skew(-25deg) translate(0, 0);
-  -ms-transform: skew(-25deg) translate(0, 0);
-  transform: skew(-25deg) translate(0, 0);
+  -webkit-transform: skew(-25deg);
+  -ms-transform: skew(-25deg);
+  transform: skew(-25deg);
   -webkit-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
@@ -362,7 +362,6 @@ footer .icons a {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 20vh;
     overflow-y: auto;
   }
 
@@ -372,6 +371,17 @@ footer .icons a {
     -ms-flex: 1 0 70px;
     flex: 1 0 70px;
     height: 100px;
+  }
+
+  .promo-btn:hover {
+    cursor: pointer;
+    -webkit-transform: skew(-25deg) translate(2px, -5px);
+    -ms-transform: skew(-25deg) translate(2px, -5px);
+    transform: skew(-25deg) translate(2px, -5px);
+    -webkit-filter: brightness(50%)
+      drop-shadow(-0.3rem 0.3rem 0.25rem rgb(100, 100, 100));
+    filter: brightness(50%)
+      drop-shadow(-0.3rem 0.3rem 0.25rem rgb(100, 100, 100));
   }
 
   footer {

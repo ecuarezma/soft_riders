@@ -162,13 +162,14 @@ nav .bars {
 }
 
 #promo-img {
+  height: 100%;
   padding-left: 2rem;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  -webkit-transform: skew(25deg);
-  -ms-transform: skew(25deg);
-  transform: skew(25deg);
+  -webkit-transform: skew(25deg) scale(5);
+  -ms-transform: skew(25deg) scale(5);
+  transform: skew(25deg) scale(5);
 }
 
 /* -------FOOTER STYLES------- */

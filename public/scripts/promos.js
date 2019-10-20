@@ -33,7 +33,7 @@ function addPromosButtons(data) {
       `<div class="promo-btn">
         <img
         id="promo-img"
-        src="${promo.pictures.sizes[4].link}"
+        src='${promo.pictures.sizes[4].link}'
         key='${promo.embed.html}'/>
       </div>`
     );

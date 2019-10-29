@@ -10,7 +10,7 @@ moment().format();
 
 //MAILGUN PRESETS (SANDBOX)
 const api_key = process.env.MAILGUN_API_KEY;
-const DOMAIN = "sandbox53a8f406c0ac4230b635e86957be8164.mailgun.org";
+const DOMAIN = process.env.MAILGUN_DOMAIN;
 const mg = mailgun({ apiKey: api_key, domain: DOMAIN });
 
 router
@@ -28,15 +28,27 @@ router
         req.flash("success", "Thank you for signing up!");
         res.redirect("/");
         //MAILGUN DATA
-        const data = {
+        const notifier = {
           from: "Soft Riders <noreply@soft-riders.com>",
-          to: `ecuarezma@gmail.com`,
+          to: `softriderz@gmail.com`,
           subject: "You have a new subscriber!",
           text: `${firstName} ${lastName} from ${location} has joined Soft Riders' mailing list!
           Their email is ${email}.`
         };
+        const welcomeEmail = {
+          from: "Soft Riders <noreply@soft-riders.com>",
+          to: `${email}`,
+          subject: `Welcome to Soft Riders, ${firstName}!`,
+          text: `Thank you for joining the mailing list!`
+        };
         //SEND EMAIL
-        mg.messages().send(data, function(error, body) {
+        mg.messages().send(notifier, function(error, body) {
+          if (error) {
+            console.log(error);
+          }
+          console.log(body);
+        });
+        mg.messages().send(welcomeEmail, function(error, body) {
           if (error) {
             console.log(error);
           }

@@ -29,7 +29,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(routes);
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 8000;
 app.listen(port, process.env.IP, () => {
   console.log(`app is running on port ${port}`);
 });

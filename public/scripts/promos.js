@@ -50,5 +50,5 @@ async function callVimeoAPI() {
 
   let imgArray = promos.data;
   addPromosButtons(imgArray);
-  console.log(imgArray);
+  // console.log(imgArray);
 }

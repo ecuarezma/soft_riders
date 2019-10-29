@@ -56,20 +56,18 @@ let spotifyToken = (req, res, next) => {
 };
 
 let calendarEvent = (req, res, next) => {
-  let radio = false;
   let curDate = moment();
   let showTime = moment
     .recur()
     .every("Wednesday")
     .daysOfWeek()
-    .every([1])
+    .every([1, 3])
     .weeksOfMonthByDay();
   if (showTime.matches(curDate)) {
-    radio = true;
-    res.locals.radio = radio;
+    res.locals.radio = true;
     next();
   } else {
-    res.locals.radio = radio;
+    res.locals.radio = false;
     next();
   }
 };

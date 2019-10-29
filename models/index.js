@@ -1,9 +1,8 @@
 var mongoose = require("mongoose");
 mongoose.set("debug", true);
 
-const pswd = process.env.DB_PWD;
 const password = process.env.DB_DEV_PWD;
-const uri = `mongodb+srv://ecuarezma:${pswd}@jovial-cluster-bd0wc.mongodb.net/test?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://ecuarezma:${password}@cluster0-0wjpt.mongodb.net/test?retryWrites=true&w=majority`;
 const options = {
   useUnifiedTopology: true,
   useNewUrlParser: true,

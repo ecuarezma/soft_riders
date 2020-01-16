@@ -74,6 +74,14 @@
   .miki-img {
     width: 33%;
   }
+
+  .title {
+    position: fixed;
+    margin: 0.5rem 0 0 1rem;
+    top: 0;
+    left: 0;
+  }
+
   .about-container {
     all: unset;
     height: 100%;

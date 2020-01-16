@@ -23,9 +23,9 @@ $(document).ready(() => {
       src = $(this)
         .children("#image")
         .attr("src");
-    spotify_content.children().remove();
+    $(".spotify-player").remove();
     if (mq.matches) {
-      spotify_content.append(
+      $("body").append(
         `<div class="spotify-player">
           <iframe 
             src="https://open.spotify.com/embed/playlist/${key}"
@@ -55,7 +55,6 @@ $(document).ready(() => {
       );
     }
   });
-  
 });
 //API VARIABLES
 let token = x;

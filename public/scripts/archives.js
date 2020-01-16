@@ -6,9 +6,9 @@ $(document).ready(() => {
   //EVENT LISTENER FOR PLAYLISTS
   mixcloud_grid.on("click", "#image", function() {
     let key = $(this).attr("key");
-    mixcloud_content.children().remove();
+    $(".mixplayer").remove();
     if (mq.matches) {
-      mixcloud_content.append(
+      $("body").append(
         `<div class="mixplayer">
           <iframe 
             id="play-widget"

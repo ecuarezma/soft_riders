@@ -7,6 +7,7 @@ $(document).ready(() => {
   mixcloud_grid.on("click", "#image", function() {
     let key = $(this).attr("key");
     $(".mixplayer").remove();
+    mixcloud_content.children().remove();
     if (mq.matches) {
       $("body").append(
         `<div class="mixplayer">

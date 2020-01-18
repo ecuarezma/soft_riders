@@ -408,6 +408,17 @@ footer {
     color: rgba(68, 65, 75, 0.9);
   }
 
+  .title {
+    display: block;
+    position: relative;
+    margin: 0.5rem 0 0 1rem;
+    top: 0;
+    left: 1rem;
+    font-size: 1.5rem;
+    color: rgba(68, 65, 75, 0.9);
+    z-index: -100;
+  }
+
   .title h2 {
     width: 100vw;
     margin: 0;

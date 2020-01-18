@@ -76,10 +76,14 @@
   }
 
   .title {
+    display: block;
     position: fixed;
     margin: 0.5rem 0 0 1rem;
     top: 0;
     left: 0;
+    font-size: 1.5rem;
+    color: rgba(68, 65, 75, 0.9);
+    z-index: -100;
   }
 
   .about-container {

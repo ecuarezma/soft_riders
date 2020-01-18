@@ -334,7 +334,6 @@ footer {
     flex-direction: row;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end;
     margin: 0;
     z-index: 1000;
   }
@@ -346,6 +345,7 @@ footer {
     -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
+    left: 0;
     background: -webkit-gradient(
       linear,
       left top,
@@ -401,28 +401,22 @@ footer {
     margin-bottom: 0;
   }
 
-  nav div.title {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    color: rgba(68, 65, 75, 0.9);
-  }
-
   .title {
     display: block;
     position: relative;
-    margin: 0.5rem 0 0 1rem;
+    order: -1;
+    width: 100%;
+    left: 0;
     top: 0;
-    left: 1rem;
+    margin: 0.5rem 0 0 1rem;
     font-size: 1.5rem;
     color: rgba(68, 65, 75, 0.9);
+    white-space: nowrap;
     z-index: -100;
   }
 
   .title h2 {
-    width: 100vw;
     margin: 0;
-    padding: 0;
     font-weight: normal;
     text-transform: uppercase;
   }
@@ -472,8 +466,10 @@ footer {
   }
 
   footer {
-    -ms-flex-preferred-size: 4rem;
-    flex-basis: 4rem;
+    /* -ms-flex-preferred-size: 4rem;
+    flex-basis: 4rem; */
+    height: 50px;
+    flex: 0 0 auto;
   }
 
   .icons {

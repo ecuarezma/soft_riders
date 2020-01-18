@@ -24,6 +24,7 @@ $(document).ready(() => {
         .children("#image")
         .attr("src");
     $(".spotify-player").remove();
+    spotify_content.children().remove();
     if (mq.matches) {
       $("body").append(
         `<div class="spotify-player">

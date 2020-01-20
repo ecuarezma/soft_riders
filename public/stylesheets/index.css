@@ -167,6 +167,10 @@ video {
   opacity: 0.9;
   z-index: -1000;
 }
+
+video::-webkit-media-controls {
+  display: none;
+}
 /* -------RADIO PLAYER TO STREAM LIVE SHOWS-------- */
 #audio-player {
   -webkit-transition: -webkit-filter 400ms ease;

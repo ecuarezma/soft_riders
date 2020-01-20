@@ -152,7 +152,7 @@ nav .bars {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   cursor: pointer;
-  filter: blur(2px) opacity(60%);
+  filter: blur(1.5px) opacity(60%);
 }
 /* -------BACKGROUND VIDEO-------- */
 video {

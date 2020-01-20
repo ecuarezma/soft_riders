@@ -168,7 +168,7 @@ video {
   z-index: -1000;
 }
 
-video::-webkit-media-controls {
+video::-webkit-media-controls-start-playback-button {
   display: none;
 }
 /* -------RADIO PLAYER TO STREAM LIVE SHOWS-------- */

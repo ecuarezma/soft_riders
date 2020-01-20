@@ -9,10 +9,15 @@
       <%= success %>
     </div>
   <% } %>
-    <video playsinline autoplay muted loop poster="/media/images/still.png">
-      <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm">
+    <!-- <video playsinline muted autoplay loop poster="/media/images/still.png">
       <source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
+      <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm">
       <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg">
+    </video> -->
+    <video autoplay loop muted playsinline poster="/media/images/still.png" src="/media/videos/backgrounds/strawberry.mp4">
+    	<source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4"></source>
+      <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm"></source>
+      <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg"></source>
     </video>
 
     <div class="container">

@@ -168,8 +168,8 @@ video {
   z-index: -1000;
 }
 
-video::-webkit-media-controls-start-playback-button {
-  display: none;
+video {
+  pointer-events: none;
 }
 /* -------RADIO PLAYER TO STREAM LIVE SHOWS-------- */
 #audio-player {

@@ -16,4 +16,12 @@ $(document).ready(() => {
     ).toggleClass("blur-background");
     $(".navbar ul").slideToggle();
   });
+
+  const video = document.querySelector("video");
+  if (video.hasAttribute("autoplay")) {
+    $("video")
+      .append(`<source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
+    <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm">
+    <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg">`);
+  }
 });

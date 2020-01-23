@@ -168,9 +168,6 @@ video {
   z-index: -1000;
 }
 
-video {
-  pointer-events: none;
-}
 /* -------RADIO PLAYER TO STREAM LIVE SHOWS-------- */
 #audio-player {
   -webkit-transition: -webkit-filter 400ms ease;

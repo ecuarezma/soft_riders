@@ -155,7 +155,20 @@ nav .bars {
   filter: blur(1.5px) opacity(60%);
 }
 /* -------BACKGROUND VIDEO-------- */
-video {
+/* video {
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60vh;
+  opacity: 0.9;
+  z-index: -1000;
+} */
+
+.video-js {
   display: block;
   -o-object-fit: cover;
   object-fit: cover;

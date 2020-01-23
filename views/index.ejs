@@ -9,12 +9,32 @@
       <%= success %>
     </div>
   <% } %>
-    <video playsinline muted autoplay loop poster="/media/images/still.png">
-      <!-- <source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
+    <!-- <video playsinline muted autoplay loop poster="/media/images/still.png">
+      <source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
       <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm">
-      <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg"> -->
-    </video>
-
+      <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg">
+    </video> -->
+    <video
+    playsinline
+    autoplay
+    muted
+    loop
+    id="my-video"
+    class="video-js"
+    preload="auto"
+    poster="/media/images/still.png"
+  >
+    <source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
+    <source src="/media/videos/backgrounds/strawberry.webm" type="video/webm">
+    <source src="/media/videos/backgrounds/strawberry.ogv" type="video/ogg">
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
     <div class="container">
       <h1 id="logo"><a href="/archives">SOFT RIDERS</a></h1>
       <div class="signup-container">
@@ -34,6 +54,7 @@
     </div>   
 
     <% include ./partials/footer %>
+  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
   <script type="text/javascript" src="scripts/script.js"></script>
   <script type="text/javascript">
     const title = 'Soft Riders'

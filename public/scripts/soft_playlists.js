@@ -60,7 +60,7 @@ $(document).ready(() => {
 //API VARIABLES
 let token = x;
 const user = "englishwallpaper";
-const url = `https://api.spotify.com/v1/users/${user}/playlists?limit=50`;
+const url = `https://api.spotify.com/v1/users/${user}/playlists`;
 
 function loadPlaylists(data) {
   data.map((playlist, index) => {
@@ -84,15 +84,20 @@ function loadPlaylists(data) {
       $(".spotify-grid").append(newDiv);
     }
   });
-  // console.log(data);
+  console.log(data);
 }
 
 //CALLING SPOTIFY API current
 async function getPlaylists() {
-  let playlists = await fetch(url, {
+  let playlists = await fetch(url + "?limit=50", {
     headers: { Authorization: `Bearer ${token}` }
   }).then(res => res.json().then(data => data.items));
-  loadPlaylists(playlists);
+  let nextPage = await fetch(url + "?offset=50&next", {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json().then(data => data.items))
+    .catch(err => console.log(err));
+  loadPlaylists(playlists.concat(nextPage));
 }
 
 //CSS MEDIA QUERY VARIABLE

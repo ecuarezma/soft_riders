@@ -2,34 +2,36 @@
   "name": "soft_riders",
   "version": "1.0.0",
   "engines": {
-    "node": "10.15.3"
+    "node": "^10.15.3"
   },
   "description": "soft riders playlist website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Edgar Cuarezma",
   "license": "ISC",
   "dependencies": {
     "@types/mailgun-js": "^0.22.3",
+    "axios": "^0.27.2",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
-    "ejs": "^2.6.1",
+    "ejs": "^3.1.8",
     "express": "^4.17.0",
     "express-session": "^1.16.2",
     "helmet": "^3.21.1",
-    "mailgun-js": "^0.22.0",
+    "mailgun-js": "^0.6.7",
     "moment": "^2.24.0",
     "moment-recur": "^1.0.7",
     "mongoose": "^5.7.7",
     "mongoose-unique-validator": "^2.0.3",
     "newrelic": "^5.13.0",
+    "nodemon": "^2.0.20",
     "querystring": "^0.2.0",
     "request": "^2.88.0"
   }

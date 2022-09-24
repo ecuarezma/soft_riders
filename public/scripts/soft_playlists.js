@@ -76,7 +76,7 @@ function loadPlaylists(data) {
       $(".spotify-grid").append(newDiv);
     }
   });
-  console.log(data);
+  // console.log(data);
 }
 
 // CALLING SPOTIFY API current

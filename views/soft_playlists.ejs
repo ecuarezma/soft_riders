@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<%- include ('./partials/header') %>
   
   <div class='container'>
     
@@ -9,11 +9,10 @@
       </div>
     </div>
   </div>
-  <% include ./partials/footer %>
+  <%- include ('./partials/footer') %>
   
   
   <script type="text/javascript">
-    let x = '<%= token %>';
     const title = 'Curated Playlists';
     const style = '<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />';
     $('head').append(style);

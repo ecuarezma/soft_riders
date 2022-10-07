@@ -1,4 +1,4 @@
 node_modules
 newrelic_agent.log
 .env
-public
+public/media

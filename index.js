@@ -1,5 +1,7 @@
 require("newrelic");
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express"),
   compression = require("compression"),
   helmet = require("helmet"),
@@ -20,7 +22,7 @@ app.use(
     cookie: { maxAge: 6000 },
     saveUninitialized: false,
     resave: false,
-    secret: "I hear you"
+    secret: "I hear you",
   })
 );
 app.use(flash());

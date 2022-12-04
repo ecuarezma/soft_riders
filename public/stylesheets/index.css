@@ -1,4 +1,6 @@
+
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600&display=swap");
+
 
 html,
 body {
@@ -157,6 +159,7 @@ nav .bars {
 /* -------BACKGROUND VIDEO-------- */
 /* video {
   display: block;
+
   -o-object-fit: cover;
   object-fit: cover;
   position: absolute;

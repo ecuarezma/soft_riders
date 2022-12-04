@@ -2,7 +2,9 @@
   "name": "soft_riders",
   "version": "1.0.0",
   "engines": {
+
     "node": "^10.15.3"
+
   },
   "description": "soft riders playlist website",
   "main": "index.js",
@@ -25,6 +27,7 @@
     "express": "^4.17.0",
     "express-session": "^1.16.2",
     "helmet": "^3.21.1",
+
     "mailgun-js": "^0.6.7",
     "moment": "^2.24.0",
     "moment-recur": "^1.0.7",
@@ -32,6 +35,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "newrelic": "^5.13.0",
     "nodemon": "^2.0.20",
+
     "querystring": "^0.2.0",
     "request": "^2.88.0"
   }

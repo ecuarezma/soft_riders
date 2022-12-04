@@ -1,5 +1,4 @@
-<% include ./partials/header %>
-  <div class="title"><h2>PAST SHOWS</h2></div>
+<%- include ('./partials/header') %>
   <div class="container">
    
     <div class='mixcloud-grid'></div>
@@ -9,15 +8,15 @@
         <p>Select a show</p>
       </div>
     </div>
-  
   </div>
-  <% include ./partials/footer %> 
+  <%- include ('./partials/footer') %> 
+  
 
  <script type="text/javascript">
   const title = 'Past Shows';
   const style = '<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />';
   $('head').append(style);
-  $('title').append(title);
+  $('title, .title h2').append(title);
   </script>
   <script type="text/javascript" src="scripts/archives.js"></script>
 </body>

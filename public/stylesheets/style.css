@@ -327,13 +327,18 @@ footer {
 
   .navbar-header {
     position: relative;
+
+    top: -5px;
+
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
+
     justify-content: flex-end;
+
     margin: 0;
     z-index: 1000;
   }
@@ -345,6 +350,8 @@ footer {
     -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
+    left: 0;
+
     background: -webkit-gradient(
       linear,
       left top,
@@ -396,30 +403,34 @@ footer {
     -ms-flex-direction: column;
     flex-direction: column;
     -ms-flex-preferred-size: 100vh;
-    flex-basis: 100vh;
-    margin-top: 2rem;
+
+    flex-basis: 100%;
+
     margin-bottom: 0;
   }
 
   .title {
     display: block;
-    position: absolute;
-    margin: 1rem;
-    top: 0;
+    position: relative;
+    order: -1;
+    width: 100%;
     left: 0;
+    top: 0;
+    margin: 0.5rem 0 0 1rem;
     font-size: 1.5rem;
     color: rgba(68, 65, 75, 0.9);
+    white-space: nowrap;
+    z-index: -100;
   }
 
   .title h2 {
     margin: 0;
-    padding: 0;
     font-weight: normal;
+    text-transform: uppercase;
   }
 
   .mixcloud-grid,
   .spotify-grid {
-    margin: 1rem;
     margin: 0;
     padding: 0;
     -webkit-box-flex: 0;
@@ -454,8 +465,7 @@ footer {
   .mixplayer,
   .spotify-player {
     all: unset;
-    position: relative;
-    top: 5px;
+    order: -1;
     margin: 0;
   }
 
@@ -464,8 +474,10 @@ footer {
   }
 
   footer {
-    -ms-flex-preferred-size: 4rem;
-    flex-basis: 4rem;
+    /* -ms-flex-preferred-size: 4rem;
+    flex-basis: 4rem; */
+    height: 50px;
+    flex: 0 0 auto;
   }
 
   .icons {

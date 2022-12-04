@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+<%- include ('./partials/header') %>
   <% if(error && error.length > 0) { %>
     <div class='error'>
       <%= error %>
@@ -9,21 +9,39 @@
       <%= success %>
     </div>
   <% } %>
-    <video playsinline autoplay muted loop poster="/media/images/still.png" id="bgvid">
-      <source src="/media/videos/backgrounds/strawberry.m4v#t=5" type="video/mp4">
-    </video>
+    <video
+    playsinline
+    autoplay
+    muted
+    loop
+    id="my-video"
+    class="video-js"
+    preload="auto"
+    poster="/media/images/still.png"
+  >
+    <source src="/media/videos/backgrounds/strawberry.mp4" type="video/mp4">
+    
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
 
     <div class="container">
       <h1 id="logo"><a href="/archives">SOFT RIDERS</a></h1>
       <div class="signup-container">
-        <% include ./partials/signup %>
+        <%- include ('./partials/signup') %>
         <i class="fas fa-times"></i>
       </div>   
     </div>
 
     <div class="container">
       <% if(radio) { %>
-        <% include ./partials/jolt_radio %>
+        <%- include ('./partials/jolt_radio') %>
+
       <% } %>
       
       <div id="join-button">
@@ -31,7 +49,8 @@
       </div>
     </div>   
 
-    <% include ./partials/footer %>
+    <%- include ('./partials/footer') %>
+  <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
   <script type="text/javascript" src="scripts/script.js"></script>
   <script type="text/javascript">
     const title = 'Soft Riders'

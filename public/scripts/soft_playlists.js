@@ -16,18 +16,15 @@ $(document).ready(() => {
   getPlaylists();
 
   //EVENT LISTENER FOR PLAYLISTS
-  spotify_grid.on("click", ".playlist-card", function() {
-    let key = $(this)
-        .children("#image")
-        .attr("key"),
-      src = $(this)
-        .children("#image")
-        .attr("src");
+  spotify_grid.on("click", ".playlist-card", function () {
+    let key = $(this).children("#image").attr("key"),
+      src = $(this).children("#image").attr("src");
+    $(".spotify-player").remove();
     spotify_content.children().remove();
     if (mq.matches) {
-      spotify_content.append(
+      $("body").append(
         `<div class="spotify-player">
-          <iframe 
+          <iframe
             src="https://open.spotify.com/embed/playlist/${key}"
             width="100%"
             height="80px"
@@ -40,10 +37,10 @@ $(document).ready(() => {
     } else {
       spotify_content.append(
         `<div class="spotify-player">
-        <img  id="play-image" 
-              src="${src}" 
+        <img  id="play-image"
+              src="${src}"
         />
-        <iframe 
+        <iframe
           src="https://open.spotify.com/embed/playlist/${key}"
           width="100%"
           height="400px"
@@ -57,10 +54,6 @@ $(document).ready(() => {
   });
   
 });
-//API VARIABLES
-let token = x;
-const user = "englishwallpaper";
-const url = `https://api.spotify.com/v1/users/${user}/playlists?limit=50`;
 
 function loadPlaylists(data) {
   data.map((playlist, index) => {
@@ -68,8 +61,8 @@ function loadPlaylists(data) {
       display_name = playlist.owner.display_name;
     let newDiv = $(
       `<div class="playlist-card">
-        <img 
-          id="image" 
+        <img
+          id="image"
           src="${src}"
           alt="playlist-${index}"
           key="${playlist.id}"
@@ -87,11 +80,14 @@ function loadPlaylists(data) {
   // console.log(data);
 }
 
-//CALLING SPOTIFY API current
+// CALLING SPOTIFY API current
+
 async function getPlaylists() {
-  let playlists = await fetch(url, {
-    headers: { Authorization: `Bearer ${token}` }
-  }).then(res => res.json().then(data => data.items));
+  let playlists = await fetch("/playlists/api", {
+    method: "POST",
+  })
+    .then((res) => res.json().then((data) => data.items))
+    .catch((err) => console.log(err));
   loadPlaylists(playlists);
 }
 

@@ -1,5 +1,7 @@
-require("newrelic");
-require("dotenv").config();
+require("newrelic");=
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express"),
   compression = require("compression"),
   helmet = require("helmet"),
@@ -20,7 +22,7 @@ app.use(
     cookie: { maxAge: 6000 },
     saveUninitialized: false,
     resave: false,
-    secret: "I hear you"
+    secret: "I hear you",
   })
 );
 app.use(flash());
@@ -29,7 +31,7 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(routes);
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 8000;
 app.listen(port, process.env.IP, () => {
   console.log(`app is running on port ${port}`);
 });

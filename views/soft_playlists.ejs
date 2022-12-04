@@ -1,5 +1,5 @@
-<% include ./partials/header %>
-  <div class="title"><h2>PLAYLISTS</h2></div>
+<%- include ('./partials/header') %>
+  
   <div class='container'>
     
     <div class='spotify-grid'></div>
@@ -8,16 +8,15 @@
         <p>Select a playlist</p>
       </div>
     </div>
-
   </div>
-  <% include ./partials/footer %>
+  <%- include ('./partials/footer') %>
+  
   
   <script type="text/javascript">
-    let x = '<%= token %>';
-    const title = 'Playlists';
+    const title = 'Curated Playlists';
     const style = '<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />';
     $('head').append(style);
-    $('title').append(title);
+    $('title, .title h2').append(title);
   </script>
   <script type="text/javascript" src="scripts/soft_playlists.js"></script>
 </body>

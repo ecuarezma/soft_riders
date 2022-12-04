@@ -327,13 +327,18 @@ footer {
 
   .navbar-header {
     position: relative;
+
     top: -5px;
+
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
+
+    justify-content: flex-end;
+
     margin: 0;
     z-index: 1000;
   }
@@ -346,6 +351,7 @@ footer {
     flex-direction: column;
     position: absolute;
     left: 0;
+
     background: -webkit-gradient(
       linear,
       left top,
@@ -397,7 +403,9 @@ footer {
     -ms-flex-direction: column;
     flex-direction: column;
     -ms-flex-preferred-size: 100vh;
+
     flex-basis: 100%;
+
     margin-bottom: 0;
   }
 

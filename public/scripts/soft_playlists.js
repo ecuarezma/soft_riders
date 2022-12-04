@@ -52,6 +52,7 @@ $(document).ready(() => {
       );
     }
   });
+  
 });
 
 function loadPlaylists(data) {
@@ -80,6 +81,7 @@ function loadPlaylists(data) {
 }
 
 // CALLING SPOTIFY API current
+
 async function getPlaylists() {
   let playlists = await fetch("/playlists/api", {
     method: "POST",

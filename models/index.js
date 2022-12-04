@@ -12,6 +12,7 @@ const options = {
 
 mongoose
   .connect(uri, options)
+
   .then(() => {
     console.log("connected to db!");
   })

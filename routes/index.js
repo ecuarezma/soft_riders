@@ -11,6 +11,7 @@ moment().format();
 //MAILGUN PRESETS (SANDBOX)
 const api_key = process.env.MAILGUN_API_KEY;
 const DOMAIN = process.env.MAILGUN_DOMAIN;
+
 const mg = mailgun({ apiKey: api_key, domain: DOMAIN });
 
 router
@@ -18,12 +19,15 @@ router
   .get(middleware.calendarEvent, (req, res) => {
     res.render("index", {
       error: req.flash("error"),
+
       success: req.flash("success"),
+
     });
   })
   .post((req, res) => {
     let { firstName, lastName, email, location } = req.body;
     db.Subscriber.create(req.body)
+
       .then((newSubscriber) => {
         req.flash("success", "Thank you for signing up!");
         res.redirect("/");
@@ -49,6 +53,7 @@ router
           console.log(body);
         });
         mg.messages().send(welcomeEmail, function (error, body) {
+
           if (error) {
             console.log(error);
           }
@@ -56,7 +61,9 @@ router
         });
         console.log(newSubscriber);
       })
-      .catch((err) => {
+
+      .catch(err => {
+
         req.flash("error", err.message);
         res.redirect("/");
       });
@@ -79,6 +86,7 @@ router.post(
     res.json(req.playlists);
   }
 );
+
 
 router.get("/promos", middleware.vimeoToken, (req, res) => {
   res.render("promos");

@@ -1,5 +1,5 @@
-const axios = require("axios");
 
+const axios = require("axios");
 let request = require("request"),
   moment = require("moment");
 require("moment-recur");
@@ -29,6 +29,7 @@ let authOptions_vimeo = {
   headers: {
     Authorization:
       "Basic " + Buffer.from(vimeo_id + ":" + vimeo_secret).toString("base64"),
+
     Accept: "application/vnd.vimeo.*+json;version=3.4",
   },
   form: {
@@ -50,6 +51,7 @@ let vimeoToken = (req, res, next) => {
 
 let spotifyToken = (req, res, next) => {
   request.post(authOptions_spotify, function (error, response, body) {
+
     if (!error && response.statusCode === 200) {
       // use the access token to access the Vimeo Web API
       res.locals.token = body.access_token;
@@ -88,6 +90,7 @@ let getPlaylists = async (req, res, next) => {
 };
 
 let calendarEvent = (req, res, next) => {
+
   let curDate = moment();
   let showTime = moment
     .recur()
@@ -104,3 +107,4 @@ let calendarEvent = (req, res, next) => {
   }
 };
 module.exports = { vimeoToken, spotifyToken, getPlaylists, calendarEvent };
+
